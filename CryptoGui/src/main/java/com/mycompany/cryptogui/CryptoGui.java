@@ -10,11 +10,14 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicButtonUI;
 
+import dorkbox.notify.Notify;
+import dorkbox.notify.Pos;
+
 /**
  *
  * @author Andrii Tochylin
  */
-public class CryptoGui extends javax.swing.JFrame {
+public class    CryptoGui extends javax.swing.JFrame {
 
     /**
      * Creates new form CryptoGui
@@ -198,7 +201,11 @@ public class CryptoGui extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        //new NoticeWindow(NoticeType.SUCCESS_NOTIFICATION, "Berhasil", NoticeWindow.LONG_DELAY, NPosition.CENTER);
+        Notify.create()
+                .position(Pos.TOP_RIGHT)
+                .title("Title Text")
+                .text("Hello World!")
+                .showWarning();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

@@ -13,20 +13,21 @@
         </repository>
     </repositories>
     <dependencies>
+        
 	<dependency>
 		<groupId>org.projectlombok</groupId>
 		<artifactId>lombok</artifactId>
 		<version>1.18.24</version>
 		<scope>provided</scope>
 	</dependency>
-        
-        <!-- Notifications JNotify -->
-        <!-- https://mvnrepository.com/artifact/net.contentobjects.jnotify/jnotify -->
+
         <dependency>
-            <groupId>net.contentobjects.jnotify</groupId>
-            <artifactId>jnotify</artifactId>
-            <version>0.94</version>
+            <groupId>com.dorkbox</groupId>
+            <artifactId>Notify</artifactId>
+            <version>3.7</version>
         </dependency>
+
+
 
 
     </dependencies>
