@@ -7,6 +7,8 @@ package com.mycompany.cryptogui;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicButtonUI;
 
@@ -17,7 +19,7 @@ import dorkbox.notify.Pos;
  *
  * @author Andrii Tochylin
  */
-public class    CryptoGui extends javax.swing.JFrame {
+public class CryptoGui extends javax.swing.JFrame {
 
     /**
      * Creates new form CryptoGui
@@ -201,11 +203,14 @@ public class    CryptoGui extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        LocalDateTime localDateTime = LocalDateTime.now();
         Notify.create()
                 .position(Pos.TOP_RIGHT)
-                .title("Title Text")
-                .text("Hello World!")
-                .showWarning();
+                .title("Notification Title! " + localDateTime.format(DateTimeFormatter.ofPattern("HH:mm")))
+                .text("Hello World! " + localDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")))
+                .darkStyle()
+                .hideAfter(10000)
+                .showInformation();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
