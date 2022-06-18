@@ -25,7 +25,8 @@ public class CryptoGui extends javax.swing.JFrame {
      * Creates new form CryptoGui
      */
     public CryptoGui() {
-        initComponents(); 
+        initComponents();
+        setTitle("Coingecko Desktop Application. Pre-alpha 0.0.1");
         
         JButton [] buttons  = {jButton1, jButton2, jButton3, jButton4, jButton5, jButton6}; 
         

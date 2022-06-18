@@ -5,16 +5,14 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 import java.sql.*;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
 
 public class CashingClient {
 
     private static final Logger logger = LogManager.getLogger(CashingClient.class);
 
     public static void main(String[] args) throws SQLException {
-        Connection connection = null;
-        Statement statement = null;
+        Connection connection;
+        Statement statement;
 
         try {
             Class.forName("org.sqlite.JDBC");
@@ -27,9 +25,9 @@ public class CashingClient {
                     " NAME           TEXT    NOT NULL, " +
                     " AGE            INT     NOT NULL, " +
                     " ADDRESS        CHAR(50), " +
-                    " SALARY         REAL)";
+                    " SALARY         INT)";
             statement.executeUpdate(sql);
-            statement.execute("SELECT * FROM COMPANY");
+            statement.execute("INSERT INTO COMPANY VALUES (1, \"JohnTest\", 5, \"Blank Address\", 10);");
             statement.close();
             connection.close();
         } catch ( Exception e ) {
