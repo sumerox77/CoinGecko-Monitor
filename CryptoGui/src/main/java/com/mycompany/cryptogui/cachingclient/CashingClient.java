@@ -27,7 +27,7 @@ public class CashingClient {
                     " ADDRESS        CHAR(50), " +
                     " SALARY         INT)";
             statement.executeUpdate(sql);
-            statement.execute("INSERT INTO COMPANY VALUES (1, \"JohnTest\", 5, \"Blank Address\", 10);");
+            statement.execute("INSERT INTO COMPANY VALUES (3, \"JohnTest\", 5, \"Blank Address\", 10);");
             statement.close();
             connection.close();
         } catch ( Exception e ) {

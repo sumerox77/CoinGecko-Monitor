@@ -5,15 +5,9 @@
 package com.mycompany.cryptogui;
 
 import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import javax.swing.JButton;
-import javax.swing.plaf.basic.BasicButtonUI;
-
-import dorkbox.notify.Notify;
-import dorkbox.notify.Pos;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
 /**
  *
@@ -27,37 +21,6 @@ public class CryptoGui extends javax.swing.JFrame {
     public CryptoGui() {
         initComponents();
         setTitle("Coingecko Desktop Application. Pre-alpha 0.0.1");
-        
-        JButton [] buttons  = {jButton1, jButton2, jButton3, jButton4, jButton5, jButton6}; 
-        
-        for (JButton button : buttons)
-        {   
-            button.setBackground(new Color(21, 25, 28));
-            button.setUI(new BasicButtonUI());
-            button.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    button.setBackground(new Color(54, 81, 207));
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    button.setBackground(new Color(21, 25, 28));
-                }
-            });
-        }
 
     }
 
@@ -71,148 +34,802 @@ public class CryptoGui extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlRoot = new javax.swing.JPanel();
-        pnlSide = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        menuPopularPanel = new javax.swing.JPanel();
+        menuPopularPanelInnerHeader = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        popularCryptoPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        cryptoPopularContainer1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        cryptoPopularContainer2 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        cryptoPopularContainer3 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        cryptoPopularContainer4 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        cryptoPopularContainer5 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        cryptoPopularContainer6 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        cryptoPopularContainer7 = new javax.swing.JPanel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        menuSearchPanel = new javax.swing.JPanel();
+        menuSearchPanelInnerHeader = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        pnlCenter = new javax.swing.JPanel();
-        pnlCTop = new javax.swing.JPanel();
-        pnlCCenter = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
-        pnlCBottom = new javax.swing.JPanel();
+        menuFavouritePanel = new javax.swing.JPanel();
+        menuFavouritePanelInnerHeader = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        menuTriggersPanel = new javax.swing.JPanel();
+        menuTriggersPanelInnerHeader = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        menuSettingsPanel = new javax.swing.JPanel();
+        menuSettingsPanelInnerHeader = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+
+
+        ActionListener actionListener = new ActionListener()
+        {
+
+            // actionPerformed() method is invoked
+            // automatically whenever you click on
+            // registered component
+            public void actionPerformed(ActionEvent actionEvent)
+            {
+
+                AbstractButton abstractButton =
+                        (AbstractButton)actionEvent.getSource();
+
+                // return true or false according
+                // to the selection or deselection
+                // of the button
+                boolean selected = abstractButton.getModel().isSelected();
+
+                System.out.println("Action - selected=" + selected + "\n");
+            }
+        };
+        // Attach Listeners
+        jToggleButton1.addActionListener(actionListener);
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1400, 700));
 
+        pnlRoot.setMinimumSize(new java.awt.Dimension(1400, 700));
         pnlRoot.setLayout(new java.awt.BorderLayout());
 
-        pnlSide.setBackground(new java.awt.Color(21, 25, 28));
-        pnlSide.setMinimumSize(new java.awt.Dimension(80, 0));
-        pnlSide.setPreferredSize(new java.awt.Dimension(80, 500));
+        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabbedPane1.setToolTipText("");
+        jTabbedPane1.setBounds(new java.awt.Rectangle(100, 0, 100, 100));
+        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTabbedPane1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(360, 360));
+        jTabbedPane1.setName(""); // NOI18N
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(100, 100));
 
-        jPanel1.setBackground(new java.awt.Color(21, 25, 28));
-        jPanel1.setPreferredSize(new java.awt.Dimension(80, 120));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 40));
+        menuPopularPanel.setLayout(new java.awt.BorderLayout());
 
-        jButton1.setBackground(new java.awt.Color(34, 40, 44));
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/andriitochylin/Workspace/SmallProjects/JavaDegreeProject/CryptoGui/src/main/java/icons/home.png")); // NOI18N
-        jButton1.setPreferredSize(new java.awt.Dimension(40, 40));
-        jPanel1.add(jButton1);
+        menuPopularPanelInnerHeader.setBackground(new java.awt.Color(204, 255, 204));
 
-        pnlSide.add(jPanel1);
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel8.setText("POPULAR PANEL");
 
-        jButton2.setBackground(new java.awt.Color(34, 40, 44));
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/andriitochylin/Workspace/SmallProjects/JavaDegreeProject/CryptoGui/src/main/java/icons/flame.png")); // NOI18N
-        jButton2.setPreferredSize(new java.awt.Dimension(40, 40));
-        pnlSide.add(jButton2);
-
-        jButton3.setBackground(new java.awt.Color(34, 40, 44));
-        jButton3.setIcon(new javax.swing.ImageIcon("/Users/andriitochylin/Workspace/SmallProjects/JavaDegreeProject/CryptoGui/src/main/java/icons/search.png")); // NOI18N
-        jButton3.setPreferredSize(new java.awt.Dimension(40, 40));
-        pnlSide.add(jButton3);
-
-        jButton4.setBackground(new java.awt.Color(34, 40, 44));
-        jButton4.setIcon(new javax.swing.ImageIcon("/Users/andriitochylin/Workspace/SmallProjects/JavaDegreeProject/CryptoGui/src/main/java/icons/star.png")); // NOI18N
-        jButton4.setPreferredSize(new java.awt.Dimension(40, 40));
-        pnlSide.add(jButton4);
-
-        jButton5.setBackground(new java.awt.Color(34, 40, 44));
-        jButton5.setIcon(new javax.swing.ImageIcon("/Users/andriitochylin/Workspace/SmallProjects/JavaDegreeProject/CryptoGui/src/main/java/icons/bell-ring.png")); // NOI18N
-        jButton5.setPreferredSize(new java.awt.Dimension(40, 40));
-        pnlSide.add(jButton5);
-
-        jButton6.setBackground(new java.awt.Color(34, 40, 44));
-        jButton6.setIcon(new javax.swing.ImageIcon("/Users/andriitochylin/Workspace/SmallProjects/JavaDegreeProject/CryptoGui/src/main/java/icons/settings-sliders.png")); // NOI18N
-        jButton6.setPreferredSize(new java.awt.Dimension(40, 40));
-        pnlSide.add(jButton6);
-
-        pnlRoot.add(pnlSide, java.awt.BorderLayout.LINE_START);
-
-        pnlCenter.setBackground(new java.awt.Color(34, 40, 44));
-        pnlCenter.setPreferredSize(new java.awt.Dimension(800, 600));
-        pnlCenter.setLayout(new java.awt.BorderLayout());
-
-        pnlCTop.setBackground(new java.awt.Color(34, 40, 44));
-
-        javax.swing.GroupLayout pnlCTopLayout = new javax.swing.GroupLayout(pnlCTop);
-        pnlCTop.setLayout(pnlCTopLayout);
-        pnlCTopLayout.setHorizontalGroup(
-            pnlCTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 912, Short.MAX_VALUE)
+        javax.swing.GroupLayout menuPopularPanelInnerHeaderLayout = new javax.swing.GroupLayout(menuPopularPanelInnerHeader);
+        menuPopularPanelInnerHeader.setLayout(menuPopularPanelInnerHeaderLayout);
+        menuPopularPanelInnerHeaderLayout.setHorizontalGroup(
+            menuPopularPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1282, Short.MAX_VALUE)
+            .addGroup(menuPopularPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPopularPanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-        pnlCTopLayout.setVerticalGroup(
-            pnlCTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        menuPopularPanelInnerHeaderLayout.setVerticalGroup(
+            menuPopularPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 49, Short.MAX_VALUE)
+            .addGroup(menuPopularPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPopularPanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        pnlCenter.add(pnlCTop, java.awt.BorderLayout.NORTH);
+        menuPopularPanel.add(menuPopularPanelInnerHeader, java.awt.BorderLayout.PAGE_START);
 
-        pnlCCenter.setBackground(new java.awt.Color(34, 40, 44));
-        pnlCCenter.setPreferredSize(new java.awt.Dimension(800, 554));
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane2.setEnabled(false);
 
-        jButton7.setText("jButton7");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel6.setText("CRYPTO NAME:");
+
+        jLabel7.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/25380/large/UUSD.jpg?1651823371")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
             }
-        });
+        }.getIcon());
 
-        javax.swing.GroupLayout pnlCCenterLayout = new javax.swing.GroupLayout(pnlCCenter);
-        pnlCCenter.setLayout(pnlCCenterLayout);
-        pnlCCenterLayout.setHorizontalGroup(
-            pnlCCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCCenterLayout.createSequentialGroup()
-                .addGap(273, 273, 273)
-                .addComponent(jButton7)
-                .addContainerGap(561, Short.MAX_VALUE))
+        jLabel13.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel13.setText("CRYPTO PRICE TO BTC:");
+
+        jLabel29.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel29.setText("MARKET CAP RANK:");
+
+        jLabel30.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel30.setText("CRYPTO NAME:");
+
+        javax.swing.GroupLayout cryptoPopularContainer1Layout = new javax.swing.GroupLayout(cryptoPopularContainer1);
+        cryptoPopularContainer1.setLayout(cryptoPopularContainer1Layout);
+        cryptoPopularContainer1Layout.setHorizontalGroup(
+            cryptoPopularContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer1Layout.createSequentialGroup()
+                .addGroup(cryptoPopularContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cryptoPopularContainer1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(cryptoPopularContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel30)))
+                    .addGroup(cryptoPopularContainer1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
-        pnlCCenterLayout.setVerticalGroup(
-            pnlCCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCCenterLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jButton7)
-                .addContainerGap(241, Short.MAX_VALUE))
+        cryptoPopularContainer1Layout.setVerticalGroup(
+            cryptoPopularContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer1Layout.createSequentialGroup()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel6)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel29)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        pnlCenter.add(pnlCCenter, java.awt.BorderLayout.CENTER);
+        jLabel14.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel14.setText("CRYPTO NAME:");
 
-        pnlCBottom.setBackground(new java.awt.Color(34, 40, 44));
-        pnlCBottom.setPreferredSize(new java.awt.Dimension(0, 100));
+        jLabel15.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/15364/large/logo.png?1620647627")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
 
-        javax.swing.GroupLayout pnlCBottomLayout = new javax.swing.GroupLayout(pnlCBottom);
-        pnlCBottom.setLayout(pnlCBottomLayout);
-        pnlCBottomLayout.setHorizontalGroup(
-            pnlCBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 912, Short.MAX_VALUE)
+        jLabel16.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel16.setText("CRYPTO PRICE TO BTC:");
+
+        jLabel31.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel31.setText("MARKET CAP RANK:");
+
+        jLabel32.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel32.setText("CRYPTO NAME:");
+
+        javax.swing.GroupLayout cryptoPopularContainer2Layout = new javax.swing.GroupLayout(cryptoPopularContainer2);
+        cryptoPopularContainer2.setLayout(cryptoPopularContainer2Layout);
+        cryptoPopularContainer2Layout.setHorizontalGroup(
+            cryptoPopularContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer2Layout.createSequentialGroup()
+                .addGroup(cryptoPopularContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cryptoPopularContainer2Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(cryptoPopularContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel32)))
+                    .addGroup(cryptoPopularContainer2Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-        pnlCBottomLayout.setVerticalGroup(
-            pnlCBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        cryptoPopularContainer2Layout.setVerticalGroup(
+            cryptoPopularContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel14)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel31)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        pnlCenter.add(pnlCBottom, java.awt.BorderLayout.SOUTH);
+        jLabel17.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel17.setText("CRYPTO NAME:");
 
-        pnlRoot.add(pnlCenter, java.awt.BorderLayout.CENTER);
+        jLabel18.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/4128/large/solana.png?1640133422")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        jLabel18.setText("PICTURE");
+
+        jLabel19.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel19.setText("CRYPTO PRICE TO BTC:");
+
+        jLabel33.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel33.setText("MARKET CAP RANK:");
+
+        jLabel34.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel34.setText("CRYPTO NAME:");
+
+        javax.swing.GroupLayout cryptoPopularContainer3Layout = new javax.swing.GroupLayout(cryptoPopularContainer3);
+        cryptoPopularContainer3.setLayout(cryptoPopularContainer3Layout);
+        cryptoPopularContainer3Layout.setHorizontalGroup(
+            cryptoPopularContainer3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer3Layout.createSequentialGroup()
+                .addGroup(cryptoPopularContainer3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cryptoPopularContainer3Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(cryptoPopularContainer3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel34)))
+                    .addGroup(cryptoPopularContainer3Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        cryptoPopularContainer3Layout.setVerticalGroup(
+            cryptoPopularContainer3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer3Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel17)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel33)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jLabel20.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel20.setText("CRYPTO NAME:");
+
+        jLabel21.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/1094/large/tron-logo.png?1547035066")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+
+        jLabel22.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel22.setText("CRYPTO PRICE TO BTC:");
+
+        jLabel35.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel35.setText("MARKET CAP RANK:");
+
+        jLabel36.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel36.setText("CRYPTO NAME:");
+
+        javax.swing.GroupLayout cryptoPopularContainer4Layout = new javax.swing.GroupLayout(cryptoPopularContainer4);
+        cryptoPopularContainer4.setLayout(cryptoPopularContainer4Layout);
+        cryptoPopularContainer4Layout.setHorizontalGroup(
+            cryptoPopularContainer4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer4Layout.createSequentialGroup()
+                .addGroup(cryptoPopularContainer4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cryptoPopularContainer4Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(cryptoPopularContainer4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel36)))
+                    .addGroup(cryptoPopularContainer4Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        cryptoPopularContainer4Layout.setVerticalGroup(
+            cryptoPopularContainer4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer4Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel20)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel35)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jLabel23.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel23.setText("CRYPTO NAME:");
+
+        jLabel24.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/3263/large/CEL_logo.png?1609598753")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        jLabel24.setText("PICTURE");
+
+        jLabel25.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel25.setText("CRYPTO PRICE TO BTC:");
+
+        jLabel37.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel37.setText("MARKET CAP RANK:");
+
+        jLabel38.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel38.setText("CRYPTO NAME:");
+
+        javax.swing.GroupLayout cryptoPopularContainer5Layout = new javax.swing.GroupLayout(cryptoPopularContainer5);
+        cryptoPopularContainer5.setLayout(cryptoPopularContainer5Layout);
+        cryptoPopularContainer5Layout.setHorizontalGroup(
+            cryptoPopularContainer5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer5Layout.createSequentialGroup()
+                .addGroup(cryptoPopularContainer5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cryptoPopularContainer5Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(cryptoPopularContainer5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel38)))
+                    .addGroup(cryptoPopularContainer5Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        cryptoPopularContainer5Layout.setVerticalGroup(
+            cryptoPopularContainer5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer5Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel23)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel37)
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+
+        jLabel26.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel26.setText("CRYPTO NAME:");
+
+        jLabel27.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/16786/large/mimlogopng.png?1624979612")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        jLabel27.setText("PICTURE");
+
+        jLabel28.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel28.setText("CRYPTO PRICE TO BTC:");
+
+        jLabel39.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel39.setText("MARKET CAP RANK:");
+
+        jLabel40.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel40.setText("CRYPTO NAME:");
+
+        javax.swing.GroupLayout cryptoPopularContainer6Layout = new javax.swing.GroupLayout(cryptoPopularContainer6);
+        cryptoPopularContainer6.setLayout(cryptoPopularContainer6Layout);
+        cryptoPopularContainer6Layout.setHorizontalGroup(
+            cryptoPopularContainer6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer6Layout.createSequentialGroup()
+                .addGroup(cryptoPopularContainer6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cryptoPopularContainer6Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(cryptoPopularContainer6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel39)
+                            .addComponent(jLabel40)))
+                    .addGroup(cryptoPopularContainer6Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+        cryptoPopularContainer6Layout.setVerticalGroup(
+            cryptoPopularContainer6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer6Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel26)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel39)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        jLabel46.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel46.setText("CRYPTO NAME:");
+
+        jLabel47.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/25767/large/01_Luna_color.png?1653556122")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        jLabel47.setText("PICTURE");
+
+        jLabel48.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel48.setText("CRYPTO PRICE TO BTC:");
+
+        jLabel49.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel49.setText("MARKET CAP RANK:");
+
+        jLabel50.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel50.setText("CRYPTO NAME:");
+
+        javax.swing.GroupLayout cryptoPopularContainer7Layout = new javax.swing.GroupLayout(cryptoPopularContainer7);
+        cryptoPopularContainer7.setLayout(cryptoPopularContainer7Layout);
+        cryptoPopularContainer7Layout.setHorizontalGroup(
+            cryptoPopularContainer7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer7Layout.createSequentialGroup()
+                .addGroup(cryptoPopularContainer7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cryptoPopularContainer7Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(cryptoPopularContainer7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel46)
+                            .addComponent(jLabel48)
+                            .addComponent(jLabel49)
+                            .addComponent(jLabel50)))
+                    .addGroup(cryptoPopularContainer7Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+        cryptoPopularContainer7Layout.setVerticalGroup(
+            cryptoPopularContainer7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer7Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel46)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel49)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cryptoPopularContainer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(cryptoPopularContainer2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(cryptoPopularContainer4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(cryptoPopularContainer5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(cryptoPopularContainer3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(cryptoPopularContainer6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 50, Short.MAX_VALUE)
+                .addComponent(cryptoPopularContainer7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cryptoPopularContainer4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(cryptoPopularContainer5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jScrollPane2.setViewportView(jPanel3);
+
+        javax.swing.GroupLayout popularCryptoPanelLayout = new javax.swing.GroupLayout(popularCryptoPanel);
+        popularCryptoPanel.setLayout(popularCryptoPanelLayout);
+        popularCryptoPanelLayout.setHorizontalGroup(
+            popularCryptoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popularCryptoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        popularCryptoPanelLayout.setVerticalGroup(
+            popularCryptoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
+        );
+
+        menuPopularPanel.add(popularCryptoPanel, java.awt.BorderLayout.CENTER);
+
+        jTabbedPane1.addTab("POPULAR", menuPopularPanel);
+
+        menuSearchPanel.setLayout(new java.awt.BorderLayout());
+
+        menuSearchPanelInnerHeader.setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel9.setText("SEARCH PANEL");
+
+        javax.swing.GroupLayout menuSearchPanelInnerHeaderLayout = new javax.swing.GroupLayout(menuSearchPanelInnerHeader);
+        menuSearchPanelInnerHeader.setLayout(menuSearchPanelInnerHeaderLayout);
+        menuSearchPanelInnerHeaderLayout.setHorizontalGroup(
+            menuSearchPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(menuSearchPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuSearchPanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        menuSearchPanelInnerHeaderLayout.setVerticalGroup(
+            menuSearchPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(menuSearchPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuSearchPanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        menuSearchPanel.add(menuSearchPanelInnerHeader, java.awt.BorderLayout.PAGE_START);
+
+        jTextField1.setToolTipText("Search for Crypto!");
+
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jButton1.setText("🔍");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(442, 442, 442)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(479, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(647, Short.MAX_VALUE))
+        );
+
+        menuSearchPanel.add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        jTabbedPane1.addTab("SEARCH", menuSearchPanel);
+
+        menuFavouritePanel.setLayout(new java.awt.BorderLayout());
+
+        menuFavouritePanelInnerHeader.setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel10.setText("FAVOURITE PANEL");
+
+        javax.swing.GroupLayout menuFavouritePanelInnerHeaderLayout = new javax.swing.GroupLayout(menuFavouritePanelInnerHeader);
+        menuFavouritePanelInnerHeader.setLayout(menuFavouritePanelInnerHeaderLayout);
+        menuFavouritePanelInnerHeaderLayout.setHorizontalGroup(
+            menuFavouritePanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1290, Short.MAX_VALUE)
+            .addGroup(menuFavouritePanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuFavouritePanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        menuFavouritePanelInnerHeaderLayout.setVerticalGroup(
+            menuFavouritePanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 49, Short.MAX_VALUE)
+            .addGroup(menuFavouritePanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuFavouritePanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        menuFavouritePanel.add(menuFavouritePanelInnerHeader, java.awt.BorderLayout.PAGE_START);
+
+        jTabbedPane1.addTab("FAVOURITE", menuFavouritePanel);
+
+        menuTriggersPanel.setLayout(new java.awt.BorderLayout());
+
+        menuTriggersPanelInnerHeader.setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel11.setText("TRIGGERS PANEL");
+
+        javax.swing.GroupLayout menuTriggersPanelInnerHeaderLayout = new javax.swing.GroupLayout(menuTriggersPanelInnerHeader);
+        menuTriggersPanelInnerHeader.setLayout(menuTriggersPanelInnerHeaderLayout);
+        menuTriggersPanelInnerHeaderLayout.setHorizontalGroup(
+            menuTriggersPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1290, Short.MAX_VALUE)
+            .addGroup(menuTriggersPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuTriggersPanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        menuTriggersPanelInnerHeaderLayout.setVerticalGroup(
+            menuTriggersPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 49, Short.MAX_VALUE)
+            .addGroup(menuTriggersPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuTriggersPanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        menuTriggersPanel.add(menuTriggersPanelInnerHeader, java.awt.BorderLayout.PAGE_START);
+
+        jTabbedPane1.addTab("TRIGGERS", menuTriggersPanel);
+
+        menuSettingsPanel.setLayout(new java.awt.BorderLayout());
+
+        menuSettingsPanelInnerHeader.setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel12.setText("SETTINGS PANEL");
+
+        javax.swing.GroupLayout menuSettingsPanelInnerHeaderLayout = new javax.swing.GroupLayout(menuSettingsPanelInnerHeader);
+        menuSettingsPanelInnerHeader.setLayout(menuSettingsPanelInnerHeaderLayout);
+        menuSettingsPanelInnerHeaderLayout.setHorizontalGroup(
+            menuSettingsPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1290, Short.MAX_VALUE)
+            .addGroup(menuSettingsPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuSettingsPanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        menuSettingsPanelInnerHeaderLayout.setVerticalGroup(
+            menuSettingsPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 49, Short.MAX_VALUE)
+            .addGroup(menuSettingsPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuSettingsPanelInnerHeaderLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        menuSettingsPanel.add(menuSettingsPanelInnerHeader, java.awt.BorderLayout.PAGE_START);
+
+        jToggleButton1.setText("jToggleButton1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jToggleButton1)
+                .addContainerGap(1064, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(jToggleButton1)
+                .addContainerGap(602, Short.MAX_VALUE))
+        );
+
+        menuSettingsPanel.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jTabbedPane1.addTab("SETTINGS", menuSettingsPanel);
+
+        pnlRoot.add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pnlRoot, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        LocalDateTime localDateTime = LocalDateTime.now();
-        Notify.create()
-                .position(Pos.TOP_RIGHT)
-                .title("Notification Title! " + localDateTime.format(DateTimeFormatter.ofPattern("HH:mm")))
-                .text("Hello World! " + localDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")))
-                .darkStyle()
-                .hideAfter(10000)
-                .showInformation();
-    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,19 +865,72 @@ public class CryptoGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel cryptoPopularContainer1;
+    private javax.swing.JPanel cryptoPopularContainer2;
+    private javax.swing.JPanel cryptoPopularContainer3;
+    private javax.swing.JPanel cryptoPopularContainer4;
+    private javax.swing.JPanel cryptoPopularContainer5;
+    private javax.swing.JPanel cryptoPopularContainer6;
+    private javax.swing.JPanel cryptoPopularContainer7;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel pnlCBottom;
-    private javax.swing.JPanel pnlCCenter;
-    private javax.swing.JPanel pnlCTop;
-    private javax.swing.JPanel pnlCenter;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JPanel menuFavouritePanel;
+    private javax.swing.JPanel menuFavouritePanelInnerHeader;
+    private javax.swing.JPanel menuPopularPanel;
+    private javax.swing.JPanel menuPopularPanelInnerHeader;
+    private javax.swing.JPanel menuSearchPanel;
+    private javax.swing.JPanel menuSearchPanelInnerHeader;
+    private javax.swing.JPanel menuSettingsPanel;
+    private javax.swing.JPanel menuSettingsPanelInnerHeader;
+    private javax.swing.JPanel menuTriggersPanel;
+    private javax.swing.JPanel menuTriggersPanelInnerHeader;
     private javax.swing.JPanel pnlRoot;
-    private javax.swing.JPanel pnlSide;
+    private javax.swing.JPanel popularCryptoPanel;
     // End of variables declaration//GEN-END:variables
 }
