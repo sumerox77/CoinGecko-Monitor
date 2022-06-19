@@ -10,6 +10,10 @@ public class CashingClient {
 
     private static final Logger logger = LogManager.getLogger(CashingClient.class);
 
+
+
+
+
     public static void main(String[] args) throws SQLException {
         Connection connection;
         Statement statement;
@@ -20,14 +24,15 @@ public class CashingClient {
             logger.info("Opened database successfully");
 
             statement = connection.createStatement();
-            String sql = "CREATE TABLE IF NOT EXISTS COMPANY " +
-                    "(ID INT PRIMARY KEY     NOT NULL," +
-                    " NAME           TEXT    NOT NULL, " +
-                    " AGE            INT     NOT NULL, " +
-                    " ADDRESS        CHAR(50), " +
-                    " SALARY         INT)";
-            statement.executeUpdate(sql);
-            statement.execute("INSERT INTO COMPANY VALUES (3, \"JohnTest\", 5, \"Blank Address\", 10);");
+//            String sql = "CREATE TABLE IF NOT EXISTS COMPANY " +
+//                    "(ID INT PRIMARY KEY     NOT NULL," +
+//                    " NAME           TEXT    NOT NULL, " +
+//                    " AGE            INT     NOT NULL, " +
+//                    " ADDRESS        CHAR(50), " +
+//                    " SALARY         INT)";
+//            statement.executeUpdate(sql);
+//            statement.execute("INSERT INTO COMPANY VALUES (3, \"JohnTest\", 5, \"Blank Address\", 10);");
+
             statement.close();
             connection.close();
         } catch ( Exception e ) {
