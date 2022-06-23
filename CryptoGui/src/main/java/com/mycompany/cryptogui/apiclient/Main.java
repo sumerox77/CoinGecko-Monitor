@@ -11,7 +11,8 @@ class Main {
         client.ping();
         CoinFullData coinFullData = new CoinFullData();
         coinFullData = client.getCoinById("bitcoin");
-        System.out.println(coinFullData.getImage().getLarge());
+
+        System.out.println(coinFullData.getName());
         System.out.println(client.getPrice("bitcoin",Currency.USD).get("bitcoin").get(Currency.USD));
         client.shutdown();
 
