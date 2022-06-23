@@ -25,7 +25,7 @@ public class CryptoGui extends javax.swing.JFrame {
     public CryptoGui() {
         initComponents();
         setTitle("Coingecko Desktop Application. Pre-alpha 0.0.1");
-
+        cryptoPopularContainer8.setVisible(false);
     }
 
     /**
@@ -102,8 +102,6 @@ public class CryptoGui extends javax.swing.JFrame {
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         menuFavouritePanel = new javax.swing.JPanel();
         menuFavouritePanelInnerHeader = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -750,20 +748,6 @@ public class CryptoGui extends javax.swing.JFrame {
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        jButton2.setText("hide");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("show");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -773,10 +757,7 @@ public class CryptoGui extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cryptoPopularContainer8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addGap(223, 223, 223)
+                        .addGap(385, 385, 385)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -788,10 +769,7 @@ public class CryptoGui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2)
-                        .addComponent(jButton3)))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cryptoPopularContainer8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(178, Short.MAX_VALUE))
@@ -928,25 +906,15 @@ public class CryptoGui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        cryptoPopularContainer8.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        cryptoPopularContainer8.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        cryptoPopularContainer8.setVisible(false);
+
         CoinGeckoApiClient client = new CoinGeckoApiClientImpl();
         client.ping();
-
-
-
+        
         final CoinFullData coinFullData = client.getCoinById(jTextField1.getText());
+        cryptoPopularContainer8.setVisible(true);
         jLabel41.setText("Coin Full Name: "+coinFullData.getName());
         jLabel42.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -979,7 +947,6 @@ public class CryptoGui extends javax.swing.JFrame {
             jLabel55.setForeground(Color.GREEN);
         }
         jLabel53.setText("Trust Score: "+ coinFullData.getTickers().get(0).getTrustScore());
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -1025,8 +992,6 @@ public class CryptoGui extends javax.swing.JFrame {
     private javax.swing.JPanel cryptoPopularContainer7;
     private javax.swing.JPanel cryptoPopularContainer8;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
