@@ -8,13 +8,13 @@ import com.mycompany.cryptogui.apiclient.CoinGeckoApiClient;
 import com.mycompany.cryptogui.apiclient.constant.Currency;
 import com.mycompany.cryptogui.apiclient.domain.Coins.CoinFullData;
 import com.mycompany.cryptogui.apiclient.impl.CoinGeckoApiClientImpl;
-import org.jdesktop.swingx.autocomplete.AutoCompleteComboBoxEditor;
+import com.mycompany.cryptogui.triggers.TriggerEntity;
+import com.mycompany.cryptogui.triggers.TriggerManager;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.awt.*;
+
 
 /**
  *
@@ -22,15 +22,21 @@ import javax.swing.*;
  */
 public class CryptoGui extends javax.swing.JFrame {
 
+    private final TriggerManager triggerManager;
+
     /**
      * Creates new form CryptoGui
      */
     public CryptoGui() {
         initComponents();
         setTitle("Coingecko Desktop Application. Pre-alpha 0.0.1");
-        cryptoPopularContainer8.setVisible(false);
-        AutoCompleteDecorator.decorate(jComboBox1);
 
+//        triggersPanelNotificationBoard.add(new JLabel("Jello"));
+//        triggersPanelNotificationBoard.add(new JLabel("Jello1"));
+
+        cryptoPopularContainer8.setVisible(false);
+        AutoCompleteDecorator.decorate(jComboBox1); // SEARCH BAR
+        triggerManager = new TriggerManager();//
     }
 
     /**
@@ -50,48 +56,42 @@ public class CryptoGui extends javax.swing.JFrame {
         popularCryptoPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
-        cryptoPopularContainer1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        cryptoPopularContainer2 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        cryptoPopularContainer3 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        cryptoPopularContainer4 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        cryptoPopularContainer5 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        cryptoPopularContainer6 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        cryptoPopularContainer7 = new javax.swing.JPanel();
+        cryptoPopularContainer10 = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        cryptoPopularContainer12 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        cryptoPopularContainer13 = new javax.swing.JPanel();
+        jLabel82 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        jLabel84 = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel86 = new javax.swing.JLabel();
+        jLabel87 = new javax.swing.JLabel();
+        jLabel88 = new javax.swing.JLabel();
+        jLabel89 = new javax.swing.JLabel();
+        cryptoPopularContainer14 = new javax.swing.JPanel();
+        jLabel90 = new javax.swing.JLabel();
+        jLabel91 = new javax.swing.JLabel();
+        jLabel92 = new javax.swing.JLabel();
+        jLabel93 = new javax.swing.JLabel();
+        jLabel94 = new javax.swing.JLabel();
+        jLabel95 = new javax.swing.JLabel();
+        jLabel96 = new javax.swing.JLabel();
+        jLabel97 = new javax.swing.JLabel();
         menuSearchPanel = new javax.swing.JPanel();
         menuSearchPanelInnerHeader = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -115,15 +115,15 @@ public class CryptoGui extends javax.swing.JFrame {
         menuTriggersPanelInnerHeader = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        cryptoPopularContainer9 = new javax.swing.JPanel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
+        triggersPanelText = new javax.swing.JLabel();
+        triggersPanelLowerBound_info = new javax.swing.JLabel();
+        triggersPanelLowerBound_input = new javax.swing.JTextField();
+        triggersPanelUpperBound_info = new javax.swing.JLabel();
+        triggersPanelUpperBound_input = new javax.swing.JTextField();
+        triggersPanelCoinID_info = new javax.swing.JLabel();
+        triggersPanelCoinID_input = new javax.swing.JTextField();
+        triggersPanelNotificationBoard = new javax.swing.JPanel();
+        addNotificationToNotificationBoard = new javax.swing.JButton();
         menuSettingsPanel = new javax.swing.JPanel();
         menuSettingsPanelInnerHeader = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -179,10 +179,10 @@ public class CryptoGui extends javax.swing.JFrame {
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         jScrollPane2.setEnabled(false);
 
-        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel6.setText("CRYPTO NAME:");
+        jLabel46.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel46.setText("Crypto Name: ");
 
-        jLabel7.setIcon(new javax.swing.JLabel() {
+        jLabel47.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
@@ -194,398 +194,293 @@ public class CryptoGui extends javax.swing.JFrame {
             }
         }.getIcon());
 
-        jLabel13.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel13.setText("CRYPTO PRICE TO BTC:");
+        jLabel64.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel64.setText("Hashing Algorythm: ");
 
-        jLabel29.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel29.setText("MARKET CAP RANK:");
+        jLabel65.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel65.setText("Market Capacity Rank:");
 
-        jLabel30.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel30.setText("CRYPTO NAME:");
+        jLabel66.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel66.setText("Subreddit URL:");
 
-        javax.swing.GroupLayout cryptoPopularContainer1Layout = new javax.swing.GroupLayout(cryptoPopularContainer1);
-        cryptoPopularContainer1.setLayout(cryptoPopularContainer1Layout);
-        cryptoPopularContainer1Layout.setHorizontalGroup(
-            cryptoPopularContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer1Layout.createSequentialGroup()
-                .addGroup(cryptoPopularContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cryptoPopularContainer1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(cryptoPopularContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel29)
-                            .addComponent(jLabel30)))
-                    .addGroup(cryptoPopularContainer1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+        jLabel67.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel67.setText("Trust Score:");
+
+        jLabel68.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel68.setText("Price Change Percentage: ");
+
+        jLabel81.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout cryptoPopularContainer10Layout = new javax.swing.GroupLayout(cryptoPopularContainer10);
+        cryptoPopularContainer10.setLayout(cryptoPopularContainer10Layout);
+        cryptoPopularContainer10Layout.setHorizontalGroup(
+            cryptoPopularContainer10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer10Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(cryptoPopularContainer10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(cryptoPopularContainer10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(cryptoPopularContainer10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cryptoPopularContainer10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel65, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel66, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cryptoPopularContainer10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel64, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                                .addComponent(jLabel46, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(cryptoPopularContainer10Layout.createSequentialGroup()
+                        .addComponent(jLabel68)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
-        cryptoPopularContainer1Layout.setVerticalGroup(
-            cryptoPopularContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer1Layout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel6)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel29)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        jLabel14.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel14.setText("CRYPTO NAME:");
-
-        jLabel15.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://assets.coingecko.com/coins/images/15364/large/logo.png?1620647627")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-
-        jLabel16.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel16.setText("CRYPTO PRICE TO BTC:");
-
-        jLabel31.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel31.setText("MARKET CAP RANK:");
-
-        jLabel32.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel32.setText("CRYPTO NAME:");
-
-        javax.swing.GroupLayout cryptoPopularContainer2Layout = new javax.swing.GroupLayout(cryptoPopularContainer2);
-        cryptoPopularContainer2.setLayout(cryptoPopularContainer2Layout);
-        cryptoPopularContainer2Layout.setHorizontalGroup(
-            cryptoPopularContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer2Layout.createSequentialGroup()
-                .addGroup(cryptoPopularContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cryptoPopularContainer2Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(cryptoPopularContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel31)
-                            .addComponent(jLabel32)))
-                    .addGroup(cryptoPopularContainer2Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        cryptoPopularContainer2Layout.setVerticalGroup(
-            cryptoPopularContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel14)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel31)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        jLabel17.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel17.setText("CRYPTO NAME:");
-
-        jLabel18.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://assets.coingecko.com/coins/images/4128/large/solana.png?1640133422")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-        jLabel18.setText("PICTURE");
-
-        jLabel19.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel19.setText("CRYPTO PRICE TO BTC:");
-
-        jLabel33.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel33.setText("MARKET CAP RANK:");
-
-        jLabel34.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel34.setText("CRYPTO NAME:");
-
-        javax.swing.GroupLayout cryptoPopularContainer3Layout = new javax.swing.GroupLayout(cryptoPopularContainer3);
-        cryptoPopularContainer3.setLayout(cryptoPopularContainer3Layout);
-        cryptoPopularContainer3Layout.setHorizontalGroup(
-            cryptoPopularContainer3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer3Layout.createSequentialGroup()
-                .addGroup(cryptoPopularContainer3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cryptoPopularContainer3Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(cryptoPopularContainer3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel33)
-                            .addComponent(jLabel34)))
-                    .addGroup(cryptoPopularContainer3Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        cryptoPopularContainer3Layout.setVerticalGroup(
-            cryptoPopularContainer3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer3Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel17)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel33)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        jLabel20.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel20.setText("CRYPTO NAME:");
-
-        jLabel21.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://assets.coingecko.com/coins/images/1094/large/tron-logo.png?1547035066")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-
-        jLabel22.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel22.setText("CRYPTO PRICE TO BTC:");
-
-        jLabel35.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel35.setText("MARKET CAP RANK:");
-
-        jLabel36.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel36.setText("CRYPTO NAME:");
-
-        javax.swing.GroupLayout cryptoPopularContainer4Layout = new javax.swing.GroupLayout(cryptoPopularContainer4);
-        cryptoPopularContainer4.setLayout(cryptoPopularContainer4Layout);
-        cryptoPopularContainer4Layout.setHorizontalGroup(
-            cryptoPopularContainer4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer4Layout.createSequentialGroup()
-                .addGroup(cryptoPopularContainer4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cryptoPopularContainer4Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(cryptoPopularContainer4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel36)))
-                    .addGroup(cryptoPopularContainer4Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        cryptoPopularContainer4Layout.setVerticalGroup(
-            cryptoPopularContainer4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer4Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel20)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel35)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        jLabel23.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel23.setText("CRYPTO NAME:");
-
-        jLabel24.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://assets.coingecko.com/coins/images/3263/large/CEL_logo.png?1609598753")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-        jLabel24.setText("PICTURE");
-
-        jLabel25.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel25.setText("CRYPTO PRICE TO BTC:");
-
-        jLabel37.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel37.setText("MARKET CAP RANK:");
-
-        jLabel38.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel38.setText("CRYPTO NAME:");
-
-        javax.swing.GroupLayout cryptoPopularContainer5Layout = new javax.swing.GroupLayout(cryptoPopularContainer5);
-        cryptoPopularContainer5.setLayout(cryptoPopularContainer5Layout);
-        cryptoPopularContainer5Layout.setHorizontalGroup(
-            cryptoPopularContainer5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer5Layout.createSequentialGroup()
-                .addGroup(cryptoPopularContainer5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cryptoPopularContainer5Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(cryptoPopularContainer5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel38)))
-                    .addGroup(cryptoPopularContainer5Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-        cryptoPopularContainer5Layout.setVerticalGroup(
-            cryptoPopularContainer5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer5Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel23)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel37)
-                .addContainerGap(66, Short.MAX_VALUE))
-        );
-
-        jLabel26.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel26.setText("CRYPTO NAME:");
-
-        jLabel27.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://assets.coingecko.com/coins/images/16786/large/mimlogopng.png?1624979612")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-        jLabel27.setText("PICTURE");
-
-        jLabel28.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel28.setText("CRYPTO PRICE TO BTC:");
-
-        jLabel39.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel39.setText("MARKET CAP RANK:");
-
-        jLabel40.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel40.setText("CRYPTO NAME:");
-
-        javax.swing.GroupLayout cryptoPopularContainer6Layout = new javax.swing.GroupLayout(cryptoPopularContainer6);
-        cryptoPopularContainer6.setLayout(cryptoPopularContainer6Layout);
-        cryptoPopularContainer6Layout.setHorizontalGroup(
-            cryptoPopularContainer6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer6Layout.createSequentialGroup()
-                .addGroup(cryptoPopularContainer6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cryptoPopularContainer6Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(cryptoPopularContainer6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel39)
-                            .addComponent(jLabel40)))
-                    .addGroup(cryptoPopularContainer6Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(64, Short.MAX_VALUE))
-        );
-        cryptoPopularContainer6Layout.setVerticalGroup(
-            cryptoPopularContainer6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer6Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel26)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel39)
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-
-        jLabel46.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel46.setText("CRYPTO NAME:");
-
-        jLabel47.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://assets.coingecko.com/coins/images/25767/large/01_Luna_color.png?1653556122")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-        jLabel47.setText("PICTURE");
-
-        jLabel48.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel48.setText("CRYPTO PRICE TO BTC:");
-
-        jLabel49.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel49.setText("MARKET CAP RANK:");
-
-        jLabel50.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel50.setText("CRYPTO NAME:");
-
-        javax.swing.GroupLayout cryptoPopularContainer7Layout = new javax.swing.GroupLayout(cryptoPopularContainer7);
-        cryptoPopularContainer7.setLayout(cryptoPopularContainer7Layout);
-        cryptoPopularContainer7Layout.setHorizontalGroup(
-            cryptoPopularContainer7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer7Layout.createSequentialGroup()
-                .addGroup(cryptoPopularContainer7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cryptoPopularContainer7Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(cryptoPopularContainer7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel46)
-                            .addComponent(jLabel48)
-                            .addComponent(jLabel49)
-                            .addComponent(jLabel50)))
-                    .addGroup(cryptoPopularContainer7Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-        cryptoPopularContainer7Layout.setVerticalGroup(
-            cryptoPopularContainer7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer7Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+        cryptoPopularContainer10Layout.setVerticalGroup(
+            cryptoPopularContainer10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer10Layout.createSequentialGroup()
                 .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel46)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel49)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel66)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(cryptoPopularContainer10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        jLabel50.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel50.setText("Crypto Name: ");
+
+        jLabel63.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/25380/large/UUSD.jpg?1651823371")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+
+        jLabel75.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel75.setText("Hashing Algorythm: ");
+
+        jLabel76.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel76.setText("Market Capacity Rank:");
+
+        jLabel77.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel77.setText("Subreddit URL:");
+
+        jLabel78.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel78.setText("Trust Score:");
+
+        jLabel79.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel79.setText("Price Change Percentage: ");
+
+        jLabel80.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout cryptoPopularContainer12Layout = new javax.swing.GroupLayout(cryptoPopularContainer12);
+        cryptoPopularContainer12.setLayout(cryptoPopularContainer12Layout);
+        cryptoPopularContainer12Layout.setHorizontalGroup(
+            cryptoPopularContainer12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer12Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(cryptoPopularContainer12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(cryptoPopularContainer12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(cryptoPopularContainer12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cryptoPopularContainer12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel76, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel77, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cryptoPopularContainer12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel75, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                                .addComponent(jLabel50, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel78, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(cryptoPopularContainer12Layout.createSequentialGroup()
+                        .addComponent(jLabel79)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        cryptoPopularContainer12Layout.setVerticalGroup(
+            cryptoPopularContainer12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer12Layout.createSequentialGroup()
+                .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(cryptoPopularContainer12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel80, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel78, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        jLabel82.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel82.setText("Crypto Name: ");
+
+        jLabel83.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/25380/large/UUSD.jpg?1651823371")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+
+        jLabel84.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel84.setText("Hashing Algorythm: ");
+
+        jLabel85.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel85.setText("Market Capacity Rank:");
+
+        jLabel86.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel86.setText("Subreddit URL:");
+
+        jLabel87.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel87.setText("Trust Score:");
+
+        jLabel88.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel88.setText("Price Change Percentage: ");
+
+        jLabel89.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout cryptoPopularContainer13Layout = new javax.swing.GroupLayout(cryptoPopularContainer13);
+        cryptoPopularContainer13.setLayout(cryptoPopularContainer13Layout);
+        cryptoPopularContainer13Layout.setHorizontalGroup(
+            cryptoPopularContainer13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer13Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(cryptoPopularContainer13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(cryptoPopularContainer13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel83, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(cryptoPopularContainer13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cryptoPopularContainer13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel85, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel86, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cryptoPopularContainer13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel84, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                                .addComponent(jLabel82, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(cryptoPopularContainer13Layout.createSequentialGroup()
+                        .addComponent(jLabel88)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel89, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        cryptoPopularContainer13Layout.setVerticalGroup(
+            cryptoPopularContainer13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer13Layout.createSequentialGroup()
+                .addComponent(jLabel83, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel82)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel86)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(cryptoPopularContainer13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel88, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        jLabel90.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel90.setText("Crypto Name: ");
+
+        jLabel91.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://assets.coingecko.com/coins/images/25380/large/UUSD.jpg?1651823371")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+
+        jLabel92.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel92.setText("Hashing Algorythm: ");
+
+        jLabel93.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel93.setText("Market Capacity Rank:");
+
+        jLabel94.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel94.setText("Subreddit URL:");
+
+        jLabel95.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel95.setText("Trust Score:");
+
+        jLabel96.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel96.setText("Price Change Percentage: ");
+
+        jLabel97.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout cryptoPopularContainer14Layout = new javax.swing.GroupLayout(cryptoPopularContainer14);
+        cryptoPopularContainer14.setLayout(cryptoPopularContainer14Layout);
+        cryptoPopularContainer14Layout.setHorizontalGroup(
+            cryptoPopularContainer14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer14Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(cryptoPopularContainer14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(cryptoPopularContainer14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(cryptoPopularContainer14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cryptoPopularContainer14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel93, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel94, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cryptoPopularContainer14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel92, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                                .addComponent(jLabel90, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel95, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(cryptoPopularContainer14Layout.createSequentialGroup()
+                        .addComponent(jLabel96)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel97, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        cryptoPopularContainer14Layout.setVerticalGroup(
+            cryptoPopularContainer14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cryptoPopularContainer14Layout.createSequentialGroup()
+                .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel90)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel92, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel94)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(cryptoPopularContainer14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel96, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel97, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel95, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -593,37 +488,26 @@ public class CryptoGui extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cryptoPopularContainer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(cryptoPopularContainer2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(cryptoPopularContainer4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(cryptoPopularContainer5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(cryptoPopularContainer3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(cryptoPopularContainer6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 50, Short.MAX_VALUE)
-                .addComponent(cryptoPopularContainer7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(15, 15, 15)
+                .addComponent(cryptoPopularContainer12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cryptoPopularContainer10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cryptoPopularContainer14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cryptoPopularContainer13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cryptoPopularContainer4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cryptoPopularContainer3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cryptoPopularContainer2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cryptoPopularContainer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cryptoPopularContainer6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cryptoPopularContainer7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(cryptoPopularContainer5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cryptoPopularContainer14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel3);
@@ -634,12 +518,12 @@ public class CryptoGui extends javax.swing.JFrame {
             popularCryptoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popularCryptoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1267, Short.MAX_VALUE)
                 .addContainerGap())
         );
         popularCryptoPanelLayout.setVerticalGroup(
             popularCryptoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
         );
 
         menuPopularPanel.add(popularCryptoPanel, java.awt.BorderLayout.CENTER);
@@ -658,7 +542,7 @@ public class CryptoGui extends javax.swing.JFrame {
         menuSearchPanelInnerHeader.setLayout(menuSearchPanelInnerHeaderLayout);
         menuSearchPanelInnerHeaderLayout.setHorizontalGroup(
             menuSearchPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1290, Short.MAX_VALUE)
             .addGroup(menuSearchPanelInnerHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuSearchPanelInnerHeaderLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -741,9 +625,9 @@ public class CryptoGui extends javax.swing.JFrame {
                                 .addComponent(jLabel54)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(892, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cryptoPopularContainer8Layout.createSequentialGroup()
-                        .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                        .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(1007, 1007, 1007))))
         );
         cryptoPopularContainer8Layout.setVerticalGroup(
@@ -778,15 +662,14 @@ public class CryptoGui extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cryptoPopularContainer8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(389, 389, 389)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(434, 434, 434)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(493, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(cryptoPopularContainer8, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -871,101 +754,75 @@ public class CryptoGui extends javax.swing.JFrame {
 
         menuTriggersPanel.add(menuTriggersPanelInnerHeader, java.awt.BorderLayout.PAGE_START);
 
-        jLabel43.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel43.setText("Crypto Name: ");
+        jPanel4.setPreferredSize(new java.awt.Dimension(100, 100));
 
-        jLabel44.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://assets.coingecko.com/coins/images/25380/large/UUSD.jpg?1651823371")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
+        triggersPanelText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        triggersPanelText.setText("Notification Sender for changes in Coins' Price:");
+
+        triggersPanelLowerBound_info.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        triggersPanelLowerBound_info.setText("Lower Bound:");
+
+        triggersPanelUpperBound_info.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        triggersPanelUpperBound_info.setText("Upper Bound:");
+
+        triggersPanelCoinID_info.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        triggersPanelCoinID_info.setText("Coin ID:");
+
+        triggersPanelNotificationBoard.setBackground(new java.awt.Color(204, 255, 204));
+        triggersPanelNotificationBoard.setLayout(new javax.swing.BoxLayout(triggersPanelNotificationBoard, javax.swing.BoxLayout.Y_AXIS));
+
+        addNotificationToNotificationBoard.setText("ADD");
+        addNotificationToNotificationBoard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNotificationToNotificationBoardActionPerformed(evt);
             }
-        }.getIcon());
-
-        jLabel56.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel56.setText("Hashing Algorythm: ");
-
-        jLabel57.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel57.setText("Market Capacity Rank:");
-
-        jLabel58.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel58.setText("Subreddit URL:");
-
-        jLabel59.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel59.setText("Trust Score:");
-
-        jLabel60.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel60.setText("Price Change Percentage: ");
-
-        jLabel61.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-
-        javax.swing.GroupLayout cryptoPopularContainer9Layout = new javax.swing.GroupLayout(cryptoPopularContainer9);
-        cryptoPopularContainer9.setLayout(cryptoPopularContainer9Layout);
-        cryptoPopularContainer9Layout.setHorizontalGroup(
-            cryptoPopularContainer9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer9Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(cryptoPopularContainer9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(cryptoPopularContainer9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(cryptoPopularContainer9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cryptoPopularContainer9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel57, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel58, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(cryptoPopularContainer9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                                .addComponent(jLabel43, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(cryptoPopularContainer9Layout.createSequentialGroup()
-                        .addComponent(jLabel60)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        cryptoPopularContainer9Layout.setVerticalGroup(
-            cryptoPopularContainer9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cryptoPopularContainer9Layout.createSequentialGroup()
-                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel43)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel58)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(cryptoPopularContainer9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
-        );
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1277, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(cryptoPopularContainer9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(949, Short.MAX_VALUE)))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(triggersPanelText, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(triggersPanelCoinID_info)
+                        .addGap(18, 18, 18)
+                        .addComponent(triggersPanelCoinID_input, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(triggersPanelLowerBound_info, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(triggersPanelLowerBound_input, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(triggersPanelUpperBound_info)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(triggersPanelUpperBound_input, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(addNotificationToNotificationBoard)))
+                .addContainerGap(399, Short.MAX_VALUE))
+            .addComponent(triggersPanelNotificationBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 701, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(cryptoPopularContainer9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(238, Short.MAX_VALUE)))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(triggersPanelText, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(triggersPanelUpperBound_info)
+                        .addComponent(triggersPanelUpperBound_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(triggersPanelLowerBound_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(triggersPanelCoinID_info, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(triggersPanelCoinID_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(triggersPanelLowerBound_info)
+                        .addComponent(addNotificationToNotificationBoard)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(triggersPanelNotificationBoard, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         menuTriggersPanel.add(jPanel4, java.awt.BorderLayout.CENTER);
@@ -1012,7 +869,7 @@ public class CryptoGui extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(97, 97, 97)
                 .addComponent(jToggleButton1)
-                .addContainerGap(1064, Short.MAX_VALUE))
+                .addContainerGap(1066, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1079,7 +936,35 @@ public class CryptoGui extends javax.swing.JFrame {
         jLabel53.setText("Trust Score: "+ coinFullData.getTickers().get(0).getTrustScore());
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private long id = 1L;
 
+    private void addNotificationToNotificationBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNotificationToNotificationBoardActionPerformed
+        // TODO add your handling code here:
+        TriggerEntity triggerEntity = new TriggerEntity(
+                Double.parseDouble(triggersPanelLowerBound_input.getText()),
+                Double.parseDouble(triggersPanelUpperBound_input.getText()),
+                triggersPanelCoinID_input.getText()
+        );
+
+        triggerManager.map.put(id++, triggerEntity);
+
+        redrawTriggers();
+
+    }//GEN-LAST:event_addNotificationToNotificationBoardActionPerformed
+
+    private Component createComponent(TriggerEntity te) {
+        return new JLabel("Im a fucking trigger, coin: " + te.getCoinID() + "[" + te.getPriceLowerBound() + ", " + te.getPriceUpperBound() + "]");
+    }
+
+    private void redrawTriggers() {
+        triggersPanelNotificationBoard.removeAll();
+        System.out.println("kurwa1");
+        for (TriggerEntity te : triggerManager.map.values()) {
+            System.out.println("kurwa2");
+            triggersPanelNotificationBoard.add(createComponent(te));
+        }
+        //triggersPanelNotificationBoard.remo
+    }
   
 
     /**
@@ -1118,74 +1003,60 @@ public class CryptoGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel cryptoPopularContainer1;
-    private javax.swing.JPanel cryptoPopularContainer2;
-    private javax.swing.JPanel cryptoPopularContainer3;
-    private javax.swing.JPanel cryptoPopularContainer4;
-    private javax.swing.JPanel cryptoPopularContainer5;
-    private javax.swing.JPanel cryptoPopularContainer6;
-    private javax.swing.JPanel cryptoPopularContainer7;
+    private javax.swing.JButton addNotificationToNotificationBoard;
+    private javax.swing.JPanel cryptoPopularContainer10;
+    private javax.swing.JPanel cryptoPopularContainer12;
+    private javax.swing.JPanel cryptoPopularContainer13;
+    private javax.swing.JPanel cryptoPopularContainer14;
     private javax.swing.JPanel cryptoPopularContainer8;
-    private javax.swing.JPanel cryptoPopularContainer9;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1205,5 +1076,13 @@ public class CryptoGui extends javax.swing.JFrame {
     private javax.swing.JPanel menuTriggersPanelInnerHeader;
     private javax.swing.JPanel pnlRoot;
     private javax.swing.JPanel popularCryptoPanel;
+    private javax.swing.JLabel triggersPanelCoinID_info;
+    private javax.swing.JTextField triggersPanelCoinID_input;
+    private javax.swing.JLabel triggersPanelLowerBound_info;
+    private javax.swing.JTextField triggersPanelLowerBound_input;
+    private javax.swing.JPanel triggersPanelNotificationBoard;
+    private javax.swing.JLabel triggersPanelText;
+    private javax.swing.JLabel triggersPanelUpperBound_info;
+    private javax.swing.JTextField triggersPanelUpperBound_input;
     // End of variables declaration//GEN-END:variables
 }
