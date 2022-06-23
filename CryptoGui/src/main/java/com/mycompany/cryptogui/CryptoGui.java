@@ -23,6 +23,7 @@ import java.awt.*;
 public class CryptoGui extends javax.swing.JFrame {
 
     private final TriggerManager triggerManager;
+    private final NotifierDaemon notifierDaemon;
 
     /**
      * Creates new form CryptoGui
@@ -34,7 +35,7 @@ public class CryptoGui extends javax.swing.JFrame {
         cryptoPopularContainer8.setVisible(false);
         AutoCompleteDecorator.decorate(jComboBox1); // SEARCH BAR
         triggerManager = new TriggerManager();//
-        NotifierDaemon notifierDaemon = new NotifierDaemon(triggerManager, new CoinGeckoApiClientImpl());
+        notifierDaemon = new NotifierDaemon(triggerManager, new CoinGeckoApiClientImpl(), true);
         new Thread(notifierDaemon).start();
     }
 
@@ -127,7 +128,7 @@ public class CryptoGui extends javax.swing.JFrame {
         menuSettingsPanelInnerHeader = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -859,7 +860,18 @@ public class CryptoGui extends javax.swing.JFrame {
 
         menuSettingsPanel.add(menuSettingsPanelInnerHeader, java.awt.BorderLayout.PAGE_START);
 
-        jToggleButton1.setText("jToggleButton1");
+        jCheckBox1.setSelected(true);
+        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox1ItemStateChanged(evt);
+            }
+        });
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -867,15 +879,15 @@ public class CryptoGui extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(97, 97, 97)
-                .addComponent(jToggleButton1)
-                .addContainerGap(1066, Short.MAX_VALUE))
+                .addComponent(jCheckBox1)
+                .addContainerGap(1089, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jToggleButton1)
-                .addContainerGap(602, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jCheckBox1)
+                .addContainerGap(662, Short.MAX_VALUE))
         );
 
         menuSettingsPanel.add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -946,6 +958,15 @@ public class CryptoGui extends javax.swing.JFrame {
         triggerManager.add(triggerEntity);
         redrawTriggers();
     }//GEN-LAST:event_addNotificationToNotificationBoardActionPerformed
+
+    private void jCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox1ItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jCheckBox1ItemStateChanged
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        notifierDaemon.setActive(jCheckBox1.isSelected());
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private long id = 1L;
 
@@ -1023,6 +1044,7 @@ public class CryptoGui extends javax.swing.JFrame {
     private javax.swing.JPanel cryptoPopularContainer14;
     private javax.swing.JPanel cryptoPopularContainer8;
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1076,7 +1098,6 @@ public class CryptoGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPanel menuFavouritePanel;
     private javax.swing.JPanel menuFavouritePanelInnerHeader;
     private javax.swing.JPanel menuPopularPanel;
