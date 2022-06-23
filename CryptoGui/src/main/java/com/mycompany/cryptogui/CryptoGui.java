@@ -765,15 +765,14 @@ public class CryptoGui extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cryptoPopularContainer15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cryptoPopularContainer14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cryptoPopularContainer16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cryptoPopularContainer11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cryptoPopularContainer14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cryptoPopularContainer13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cryptoPopularContainer12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cryptoPopularContainer10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cryptoPopularContainer16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cryptoPopularContainer15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(920, Short.MAX_VALUE))
         );
 
@@ -1178,8 +1177,7 @@ public class CryptoGui extends javax.swing.JFrame {
         // TODO:
         // MAIN PAGE ADD INFO
         Trending tr = client.getTrending();
-//        tr.getCoins().get(0).getItem().getLarge();
-
+/*---------------------------------------------------------------------------------------------------------------------*/
         jLabel50.setText("Coin Full Name: "+tr.getCoins().get(0).getItem().getName());
         jLabel75.setText("Coin ID: "+tr.getCoins().get(0).getItem().getId());
         jLabel63.setIcon(new javax.swing.JLabel() {
@@ -1217,10 +1215,12 @@ public class CryptoGui extends javax.swing.JFrame {
         {
             jLabel57.setForeground(new Color(0, 128, 0));
         }
-        jLabel78.setText("Trust Score: "+ trustScore_1);
+        jLabel78.setText("Trust Score: "+ trustScore_1.toUpperCase());
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 
-
+        jLabel46.setText("Coin Full Name: "+tr.getCoins().get(1).getItem().getName());
+        jLabel64.setText("Coin ID: "+tr.getCoins().get(1).getItem().getId());
         // SECOND EL IMG
         jLabel47.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -1234,6 +1234,33 @@ public class CryptoGui extends javax.swing.JFrame {
             }
         }.getIcon());
 
+        jLabel65.setText("Market Capacity Rank: " + tr.getCoins().get(1).getItem().getMarketCapRank());
+
+        final String hashingAlgorithmSECOND = client.getCoinById(tr.getCoins().get(1).getItem().getId()).getHashingAlgorithm();
+        final double priceChangePercenta24h_2 = client.getCoinById(tr.getCoins().get(1).getItem().getId()).getMarketData().getPriceChangePercentage24h();
+        final String trustScore_2 = client.getCoinById(tr.getCoins().get(1).getItem().getId()).getTickers().get(0).getTrustScore();
+        if(hashingAlgorithmSECOND != null)
+        {
+            jLabel66.setText("Hashing Algorithm: " + hashingAlgorithmSECOND);
+        }
+        else
+        {
+            jLabel66.setText("Hashing Algorithm is not described");
+        }
+
+        jLabel81.setText(String.valueOf(priceChangePercenta24h_2)+"%");
+        if(priceChangePercenta24h_2 <= 0)
+        {
+            jLabel81.setForeground(Color.RED);
+        }else if(priceChangePercenta24h_2 > 0)
+        {
+            jLabel81.setForeground(new Color(0, 128, 0));
+        }
+        jLabel67.setText("Trust Score: "+ trustScore_2.toUpperCase());
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+        jLabel90.setText("Coin Full Name: "+tr.getCoins().get(2).getItem().getName());
+        jLabel92.setText("Coin ID: "+tr.getCoins().get(2).getItem().getId());
         // third EL IMG
         jLabel91.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -1246,7 +1273,40 @@ public class CryptoGui extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
+
+
+        jLabel93.setText("Market Capacity Rank: " + tr.getCoins().get(2).getItem().getMarketCapRank());
+
+        final String hashingAlgorithmTHIRD = client.getCoinById(tr.getCoins().get(2).getItem().getId()).getHashingAlgorithm();
+        final double priceChangePercenta24h_3 = client.getCoinById(tr.getCoins().get(2).getItem().getId()).getMarketData().getPriceChangePercentage24h();
+        final String trustScore_3 = client.getCoinById(tr.getCoins().get(2).getItem().getId()).getTickers().get(0).getTrustScore();
+        if(hashingAlgorithmTHIRD != null)
+        {
+            jLabel94.setText("Hashing Algorithm: " + hashingAlgorithmTHIRD);
+        }
+        else
+        {
+            jLabel94.setText("Hashing Algorithm is not described");
+        }
+
+        jLabel97.setText(String.valueOf(priceChangePercenta24h_3)+"%");
+        if(priceChangePercenta24h_3 <= 0)
+        {
+            jLabel97.setForeground(Color.RED);
+        }else if(priceChangePercenta24h_3 > 0)
+        {
+            jLabel97.setForeground(new Color(0, 128, 0));
+        }
+        jLabel95.setText("Trust Score: "+ trustScore_3.toUpperCase());
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
         // 4 EL IMG
+
+        jLabel82.setText("Coin Full Name: "+tr.getCoins().get(3).getItem().getName());
+        jLabel84.setText("Coin ID: "+tr.getCoins().get(3).getItem().getId());
+
         jLabel83.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
@@ -1259,6 +1319,39 @@ public class CryptoGui extends javax.swing.JFrame {
             }
         }.getIcon());
 
+        jLabel85.setText("Market Capacity Rank: " + tr.getCoins().get(3).getItem().getMarketCapRank());
+
+        final String hashingAlgorithmFOURTH = client.getCoinById(tr.getCoins().get(3).getItem().getId()).getHashingAlgorithm();
+        final double priceChangePercenta24h_4 = client.getCoinById(tr.getCoins().get(3).getItem().getId()).getMarketData().getPriceChangePercentage24h();
+        final String trustScore_4 = client.getCoinById(tr.getCoins().get(3).getItem().getId()).getTickers().get(0).getTrustScore();
+        if(hashingAlgorithmFOURTH != null)
+        {
+            jLabel86.setText("Hashing Algorithm: " + hashingAlgorithmFOURTH);
+        }
+        else
+        {
+            jLabel86.setText("Hashing Algorithm is not described");
+        }
+
+        jLabel89.setText(String.valueOf(priceChangePercenta24h_4)+"%");
+        if(priceChangePercenta24h_4 <= 0)
+        {
+            jLabel89.setForeground(Color.RED);
+        }else if(priceChangePercenta24h_4 > 0)
+        {
+            jLabel89.setForeground(new Color(0, 128, 0));
+        }
+        jLabel87.setText("Trust Score: "+ trustScore_4.toUpperCase());
+
+
+
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+        // 5 EL IMG
+        jLabel105.setText("Coin Full Name: "+tr.getCoins().get(4).getItem().getName());
+        jLabel107.setText("Coin ID: "+tr.getCoins().get(4).getItem().getId());
         jLabel106.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
@@ -1270,7 +1363,38 @@ public class CryptoGui extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
-        // 91, 83, 106, 49, 69
+
+        jLabel108.setText("Market Capacity Rank: " + tr.getCoins().get(4).getItem().getMarketCapRank());
+
+        final String hashingAlgorithmFIFTH = client.getCoinById(tr.getCoins().get(4).getItem().getId()).getHashingAlgorithm();
+        final double priceChangePercenta24h_5 = client.getCoinById(tr.getCoins().get(4).getItem().getId()).getMarketData().getPriceChangePercentage24h();
+        final String trustScore_5 = client.getCoinById(tr.getCoins().get(4).getItem().getId()).getTickers().get(0).getTrustScore();
+        if(hashingAlgorithmFIFTH != null)
+        {
+            jLabel109.setText("Hashing Algorithm: " + hashingAlgorithmFIFTH);
+        }
+        else
+        {
+            jLabel109.setText("Hashing Algorithm is not described");
+        }
+
+        jLabel112.setText(String.valueOf(priceChangePercenta24h_5)+"%");
+        if(priceChangePercenta24h_5 <= 0)
+        {
+            jLabel112.setForeground(Color.RED);
+        }else if(priceChangePercenta24h_5 > 0)
+        {
+            jLabel112.setForeground(new Color(0, 128, 0));
+        }
+        jLabel110.setText("Trust Score: "+ trustScore_5.toUpperCase());
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+        // 6 EL IMG
+
+        jLabel48.setText("Coin Full Name: "+tr.getCoins().get(5).getItem().getName());
+        jLabel70.setText("Coin ID: "+tr.getCoins().get(5).getItem().getId());
         jLabel49.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
@@ -1283,6 +1407,38 @@ public class CryptoGui extends javax.swing.JFrame {
             }
         }.getIcon());
 
+        jLabel71.setText("Market Capacity Rank: " + tr.getCoins().get(5).getItem().getMarketCapRank());
+
+        final String hashingAlgorithmSIXTH = client.getCoinById(tr.getCoins().get(5).getItem().getId()).getHashingAlgorithm();
+        final double priceChangePercenta24h_6 = client.getCoinById(tr.getCoins().get(5).getItem().getId()).getMarketData().getPriceChangePercentage24h();
+        final String trustScore_6 = client.getCoinById(tr.getCoins().get(5).getItem().getId()).getTickers().get(0).getTrustScore();
+        if(hashingAlgorithmSIXTH != null)
+        {
+            jLabel72.setText("Hashing Algorithm: " + hashingAlgorithmSIXTH);
+        }
+        else
+        {
+            jLabel72.setText("Hashing Algorithm is not described");
+        }
+
+        jLabel104.setText(String.valueOf(priceChangePercenta24h_6)+"%");
+        if(priceChangePercenta24h_6 <= 0)
+        {
+            jLabel104.setForeground(Color.RED);
+        }else if(priceChangePercenta24h_6 > 0)
+        {
+            jLabel104.setForeground(new Color(0, 128, 0));
+        }
+        jLabel73.setText("Trust Score: "+ trustScore_6.toUpperCase());
+
+
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+        // 7 EL IMG
+        jLabel56.setText("Coin Full Name: "+tr.getCoins().get(6).getItem().getName());
+        jLabel98.setText("Coin ID: "+tr.getCoins().get(6).getItem().getId());
         jLabel69.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
@@ -1294,6 +1450,32 @@ public class CryptoGui extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
+
+        jLabel99.setText("Market Capacity Rank: " + tr.getCoins().get(6).getItem().getMarketCapRank());
+
+        final String hashingAlgorithmSEVEN = client.getCoinById(tr.getCoins().get(6).getItem().getId()).getHashingAlgorithm();
+        final double priceChangePercenta24h_7 = client.getCoinById(tr.getCoins().get(6).getItem().getId()).getMarketData().getPriceChangePercentage24h();
+        final String trustScore_7 = client.getCoinById(tr.getCoins().get(6).getItem().getId()).getTickers().get(0).getTrustScore();
+        if(hashingAlgorithmSEVEN != null)
+        {
+            jLabel100.setText("Hashing Algorithm: " + hashingAlgorithmSEVEN);
+        }
+        else
+        {
+            jLabel100.setText("Hashing Algorithm is not described");
+        }
+
+        jLabel103.setText(String.valueOf(priceChangePercenta24h_7)+"%");
+        if(priceChangePercenta24h_7 <= 0)
+        {
+            jLabel103.setForeground(Color.RED);
+        }else if(priceChangePercenta24h_7 > 0)
+        {
+            jLabel103.setForeground(new Color(0, 128, 0));
+        }
+        jLabel101.setText("Trust Score: "+ trustScore_7.toUpperCase());
+        /*---------------------------------------------------------------------------------------------------------------------*/
+
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1337,7 +1519,7 @@ public class CryptoGui extends javax.swing.JFrame {
         {
             jLabel55.setForeground(new Color(0, 128, 0));
         }
-        jLabel53.setText("Trust Score: "+ coinFullData.getTickers().get(0).getTrustScore());
+        jLabel53.setText("Trust Score: "+ coinFullData.getTickers().get(0).getTrustScore().toUpperCase());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void addNotificationToNotificationBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNotificationToNotificationBoardActionPerformed
