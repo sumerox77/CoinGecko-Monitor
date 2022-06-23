@@ -96,7 +96,6 @@ public class CryptoGui extends javax.swing.JFrame {
         menuSearchPanelInnerHeader = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         cryptoPopularContainer8 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
@@ -132,7 +131,6 @@ public class CryptoGui extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1400, 700));
 
         pnlRoot.setMinimumSize(new java.awt.Dimension(1400, 700));
         pnlRoot.setLayout(new java.awt.BorderLayout());
@@ -679,8 +677,6 @@ public class CryptoGui extends javax.swing.JFrame {
 
         menuSearchPanel.add(menuSearchPanelInnerHeader, java.awt.BorderLayout.PAGE_START);
 
-        jTextField1.setToolTipText("Search for Crypto!");
-
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jButton1.setText("🔍");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -774,7 +770,7 @@ public class CryptoGui extends javax.swing.JFrame {
         );
 
         jComboBox1.setEditable(true);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Element1", "Element2", "Element3" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "bitcoin", "ethereum", "monero" }));
         jComboBox1.setActionCommand("");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -786,25 +782,25 @@ public class CryptoGui extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cryptoPopularContainer8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(385, 385, 385)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(389, 389, 389)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                    .addComponent(jComboBox1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cryptoPopularContainer8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         menuSearchPanel.add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -1046,7 +1042,7 @@ public class CryptoGui extends javax.swing.JFrame {
         client.ping();
 //        client.getTrending()
         
-        final CoinFullData coinFullData = client.getCoinById(jTextField1.getText());
+        final CoinFullData coinFullData = client.getCoinById((String) jComboBox1.getSelectedItem());
         cryptoPopularContainer8.setVisible(true);
         jLabel41.setText("Coin Full Name: "+coinFullData.getName());
         jLabel62.setText("Coin ID: "+coinFullData.getId());
@@ -1070,7 +1066,7 @@ public class CryptoGui extends javax.swing.JFrame {
             jLabel45.setText("Hashing Algorithm is not described");
         }
 
-        jLabel51.setText("Current Price (USD): " + client.getPrice(jTextField1.getText(), Currency.USD).get(jTextField1.getText()).get(Currency.USD));
+        jLabel51.setText("Current Price (USD): " + client.getPrice(jComboBox1.getSelectedItem().toString(), Currency.USD).get(jComboBox1.getSelectedItem().toString()).get(Currency.USD));
         jLabel52.setText("Market Capacity Rank: " + coinFullData.getMarketCapRank());
         jLabel55.setText(String.valueOf(coinFullData.getMarketData().getPriceChangePercentage24h())+"%");
         if(coinFullData.getMarketData().getPriceChangePercentage24h() <= 0)
@@ -1115,7 +1111,9 @@ public class CryptoGui extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new CryptoGui().setVisible(true);
+            var gui = new CryptoGui();
+            gui.setSize(1400, 700);
+            gui.setVisible(true);
         });
     }
 
@@ -1194,7 +1192,6 @@ public class CryptoGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPanel menuFavouritePanel;
     private javax.swing.JPanel menuFavouritePanelInnerHeader;
