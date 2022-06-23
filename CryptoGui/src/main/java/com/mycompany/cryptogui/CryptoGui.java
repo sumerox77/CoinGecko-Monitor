@@ -31,12 +31,11 @@ public class CryptoGui extends javax.swing.JFrame {
         initComponents();
         setTitle("Coingecko Desktop Application. Pre-alpha 0.0.1");
 
-//        triggersPanelNotificationBoard.add(new JLabel("Jello"));
-//        triggersPanelNotificationBoard.add(new JLabel("Jello1"));
-
         cryptoPopularContainer8.setVisible(false);
         AutoCompleteDecorator.decorate(jComboBox1); // SEARCH BAR
         triggerManager = new TriggerManager();//
+        NotifierDaemon notifierDaemon = new NotifierDaemon(triggerManager, new CoinGeckoApiClientImpl());
+        new Thread(notifierDaemon).start();
     }
 
     /**
@@ -936,33 +935,47 @@ public class CryptoGui extends javax.swing.JFrame {
         jLabel53.setText("Trust Score: "+ coinFullData.getTickers().get(0).getTrustScore());
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private long id = 1L;
-
     private void addNotificationToNotificationBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNotificationToNotificationBoardActionPerformed
-        // TODO add your handling code here:
         TriggerEntity triggerEntity = new TriggerEntity(
                 Double.parseDouble(triggersPanelLowerBound_input.getText()),
                 Double.parseDouble(triggersPanelUpperBound_input.getText()),
                 triggersPanelCoinID_input.getText()
         );
-
-        triggerManager.map.put(id++, triggerEntity);
-
+        long currentId = id++;
+        triggerEntity.setId(currentId);
+        triggerManager.add(triggerEntity);
         redrawTriggers();
-
     }//GEN-LAST:event_addNotificationToNotificationBoardActionPerformed
 
+    private long id = 1L;
+
     private Component createComponent(TriggerEntity te) {
-        return new JLabel("Im a fucking trigger, coin: " + te.getCoinID() + "[" + te.getPriceLowerBound() + ", " + te.getPriceUpperBound() + "]");
+        JPanel jPanel = new JPanel();
+        jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.X_AXIS));
+        jPanel.setMaximumSize(new Dimension(1400, 50));
+        JLabel tempJlabel = new JLabel("    Coin ID: " + te.getCoinID() +" Price Lower Bound:[" + te.getPriceLowerBound() + "], Price Upper Bound:[" + te.getPriceUpperBound() + "]");
+        tempJlabel.setFont(new Font("Helvetica Neue", 0, 18));
+
+        JButton jButton = new JButton();
+        jButton.setText("DEL");
+        jButton.setMaximumSize(new Dimension(100, 40));
+        jButton.addActionListener(ae -> {
+            triggerManager.remove(te.getId());
+            redrawTriggers();
+        });
+
+        jPanel.add(jButton);
+        jPanel.add(tempJlabel);
+
+        return jPanel;
     }
 
     private void redrawTriggers() {
         triggersPanelNotificationBoard.removeAll();
-        System.out.println("kurwa1");
-        for (TriggerEntity te : triggerManager.map.values()) {
-            System.out.println("kurwa2");
+        for (TriggerEntity te : triggerManager.getMap().values()) {
             triggersPanelNotificationBoard.add(createComponent(te));
         }
+        triggersPanelNotificationBoard.updateUI();
         //triggersPanelNotificationBoard.remo
     }
   
