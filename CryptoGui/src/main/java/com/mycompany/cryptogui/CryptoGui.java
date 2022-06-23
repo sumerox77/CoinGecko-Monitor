@@ -923,7 +923,22 @@ public class CryptoGui extends javax.swing.JFrame {
         );
 
         jComboBox1.setEditable(true);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "bitcoin", "ethereum", "monero" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {
+                "bitcoin",
+                "ethereum",
+                "tether",
+                "usd-coin",
+                "binancecoin",
+                "binance-usd",
+                "ripple",
+                "cardano",
+                "solana",
+                "polkadot",
+                "dogecoin",
+                "monero",
+                "dai",
+                "shiba-inu"
+        }));
         jComboBox1.setActionCommand("");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
