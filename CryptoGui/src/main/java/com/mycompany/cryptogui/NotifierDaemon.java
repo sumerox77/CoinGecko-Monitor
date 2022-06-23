@@ -32,7 +32,7 @@ public class NotifierDaemon implements Runnable {
                             {
                                 Notify.create()
                                         .title("COING-ECKO PRICE NOTIFICATION")
-                                        .text(String.format("The price of %s, is within %.2f and %.2f USD", te.getCoinID(), te.getPriceLowerBound(), te.getPriceUpperBound()))
+                                        .text(String.format("The price of %s, is within %.2f and %.2f\nPrice: %.2f USD", te.getCoinID(), te.getPriceLowerBound(), te.getPriceUpperBound(), price))
                                         .hideAfter(5000)
                                         .shake(1000, 15)
                                         .position(Pos.TOP_RIGHT)

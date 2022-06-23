@@ -768,7 +768,7 @@ public class CryptoGui extends javax.swing.JFrame {
         triggersPanelCoinID_info.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         triggersPanelCoinID_info.setText("Coin ID:");
 
-        triggersPanelNotificationBoard.setBackground(new java.awt.Color(204, 255, 204));
+        triggersPanelNotificationBoard.setBackground(new java.awt.Color(244, 244, 244));
         triggersPanelNotificationBoard.setLayout(new javax.swing.BoxLayout(triggersPanelNotificationBoard, javax.swing.BoxLayout.Y_AXIS));
 
         addNotificationToNotificationBoard.setText("ADD");
@@ -860,8 +860,9 @@ public class CryptoGui extends javax.swing.JFrame {
 
         menuSettingsPanel.add(menuSettingsPanelInnerHeader, java.awt.BorderLayout.PAGE_START);
 
+        jCheckBox1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jCheckBox1.setSelected(true);
-        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.setText("Notifications");
         jCheckBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckBox1ItemStateChanged(evt);
@@ -878,16 +879,16 @@ public class CryptoGui extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jCheckBox1)
-                .addContainerGap(1089, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1146, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(24, 24, 24)
                 .addComponent(jCheckBox1)
-                .addContainerGap(662, Short.MAX_VALUE))
+                .addContainerGap(670, Short.MAX_VALUE))
         );
 
         menuSettingsPanel.add(jPanel1, java.awt.BorderLayout.CENTER);
