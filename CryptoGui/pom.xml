@@ -64,6 +64,19 @@
             <scope>provided</scope>
         </dependency>
 
+        
+    <!-- https://mvnrepository.com/artifact/org.swinglabs.swingx/swingx-all 
+        Autocompletion in search bar
+        -->
+
+
+    <dependency>
+        <groupId>org.swinglabs.swingx</groupId>
+        <artifactId>swingx-all</artifactId>
+        <version>1.6.5</version>
+    </dependency>
+
+
     </dependencies>
     
     <properties>

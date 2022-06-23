@@ -1,0 +1,6 @@
+
+P
+java:S11411"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+l	java:S116"WRename this field "API_BASE_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌïÓ
+7
+java:S1170"!Make this final field static too.(ÌïÓ

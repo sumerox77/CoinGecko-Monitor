@@ -26,5 +26,6 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.10" level="project" />
+    <orderEntry type="library" name="Maven: org.swinglabs.swingx:swingx-all:1.6.5" level="project" />
   </component>
 </module>

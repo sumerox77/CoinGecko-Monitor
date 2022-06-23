@@ -1,0 +1,84 @@
+
+p
+java:S1104"UMake GECKO_ASC a static final constant or non-public and provide accessors if needed.(§á¸çùÿÿÿÿ
+q
+java:S1104"VMake GECKO_DESC a static final constant or non-public and provide accessors if needed.(øşàİúÿÿÿÿ
+o
+java:S1104"ZMake MARKET_CAP_ASC a static final constant or non-public and provide accessors if needed.(Íí•
+v
+java:S1104"[Make MARKET_CAP_DESC a static final constant or non-public and provide accessors if needed.(ºèÁßøÿÿÿÿ
+l
+java:S1104"VMake VOLUME_ASC a static final constant or non-public and provide accessors if needed.(É¤§“
+m
+java:S1104	"WMake VOLUME_DESC a static final constant or non-public and provide accessors if needed.(Ÿò¹ÿ
+o
+java:S1104
+"YMake COIN_NAME_ASC a static final constant or non-public and provide accessors if needed.(ˆ§êÚ
+u
+java:S1104"ZMake COIN_NAME_DESC a static final constant or non-public and provide accessors if needed.(¯ûªåÿÿÿÿÿ
+k
+java:S1104"UMake PRICE_ASC a static final constant or non-public and provide accessors if needed.(¸ŠÎŒ
+l
+java:S1104"VMake PRICE_DESC a static final constant or non-public and provide accessors if needed.(ÆÔÙ–
+r
+java:S1104"WMake HOUR_24_ASC a static final constant or non-public and provide accessors if needed.(ÀâŸüÿÿÿÿ
+n
+java:S1104"XMake HOUR_24_DESC a static final constant or non-public and provide accessors if needed.(²’ä¼
+r
+java:S1104"\Make TRUST_SCORE_DESC a static final constant or non-public and provide accessors if needed.(…ë¹
+J
+java:S1444"/Make this "public static GECKO_ASC" field final(§á¸çùÿÿÿÿ
+K
+java:S1444"0Make this "public static GECKO_DESC" field final(øşàİúÿÿÿÿ
+I
+java:S1444"4Make this "public static MARKET_CAP_ASC" field final(Íí•
+P
+java:S1444"5Make this "public static MARKET_CAP_DESC" field final(ºèÁßøÿÿÿÿ
+F
+java:S1444"0Make this "public static VOLUME_ASC" field final(É¤§“
+G
+java:S1444	"1Make this "public static VOLUME_DESC" field final(Ÿò¹ÿ
+I
+java:S1444
+"3Make this "public static COIN_NAME_ASC" field final(ˆ§êÚ
+O
+java:S1444"4Make this "public static COIN_NAME_DESC" field final(¯ûªåÿÿÿÿÿ
+E
+java:S1444"/Make this "public static PRICE_ASC" field final(¸ŠÎŒ
+F
+java:S1444"0Make this "public static PRICE_DESC" field final(ÆÔÙ–
+L
+java:S1444"1Make this "public static HOUR_24_ASC" field final(ÀâŸüÿÿÿÿ
+H
+java:S1444"2Make this "public static HOUR_24_DESC" field final(²’ä¼
+L
+java:S1444"6Make this "public static TRUST_SCORE_DESC" field final(…ë¹
+o
+java:S3008"TRename this field "GECKO_ASC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§á¸çùÿÿÿÿ
+p
+java:S3008"URename this field "GECKO_DESC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øşàİúÿÿÿÿ
+n
+java:S3008"YRename this field "MARKET_CAP_ASC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íí•
+u
+java:S3008"ZRename this field "MARKET_CAP_DESC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºèÁßøÿÿÿÿ
+k
+java:S3008"URename this field "VOLUME_ASC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É¤§“
+l
+java:S3008	"VRename this field "VOLUME_DESC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿò¹ÿ
+n
+java:S3008
+"XRename this field "COIN_NAME_ASC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ§êÚ
+t
+java:S3008"YRename this field "COIN_NAME_DESC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯ûªåÿÿÿÿÿ
+j
+java:S3008"TRename this field "PRICE_ASC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ŠÎŒ
+k
+java:S3008"URename this field "PRICE_DESC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆÔÙ–
+q
+java:S3008"VRename this field "HOUR_24_ASC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀâŸüÿÿÿÿ
+m
+java:S3008"WRename this field "HOUR_24_DESC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²’ä¼
+q
+java:S3008"[Rename this field "TRUST_SCORE_DESC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…ë¹
+U
+java:S1118":Add a private constructor to hide the implicit public one.(«»±íşÿÿÿÿ
