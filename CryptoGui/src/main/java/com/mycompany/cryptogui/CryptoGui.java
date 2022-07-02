@@ -1035,7 +1035,7 @@ public class CryptoGui extends javax.swing.JFrame {
         menuFavouritePanel.add(menuFavouritePanelInnerHeader, java.awt.BorderLayout.PAGE_START);
 
         favouritePanelBoard.setMaximumSize(new java.awt.Dimension(1600, 600));
-        favouritePanelBoard.setLayout(new javax.swing.BoxLayout(favouritePanelBoard, BoxLayout.Y_AXIS));
+        favouritePanelBoard.setLayout(new javax.swing.BoxLayout(favouritePanelBoard, javax.swing.BoxLayout.Y_AXIS));
         menuFavouritePanel.add(favouritePanelBoard, java.awt.BorderLayout.CENTER);
 
         jTabbedPane1.addTab("FAVOURITE", menuFavouritePanel);
@@ -1196,16 +1196,16 @@ public class CryptoGui extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(15, 15, 15)
                 .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1144, Short.MAX_VALUE))
+                .addContainerGap(1153, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(jCheckBox1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(611, Short.MAX_VALUE))
         );
 
         menuSettingsPanel.add(jPanel1, java.awt.BorderLayout.CENTER);
