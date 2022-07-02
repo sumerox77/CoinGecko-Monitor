@@ -41,6 +41,7 @@ public class CryptoGui extends javax.swing.JFrame {
     private final DatabaseConnector databaseConnector;
     private final FavouriteManager favoutireManager;
 
+
     /**
      * Creates new form CryptoGui
      */
@@ -55,6 +56,8 @@ public class CryptoGui extends javax.swing.JFrame {
         notifierDaemon = new NotifierDaemon(triggerManager, new CoinGeckoApiClientImpl(), true);
         new Thread(notifierDaemon).start();
         databaseConnector = new DatabaseConnector();
+        redrawTriggers();
+        redrawFavourite();
     }
 
     /**
