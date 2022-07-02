@@ -1,29 +1,42 @@
 package com.mycompany.cryptogui.triggers;
 
+import com.mycompany.cryptogui.DatabaseConnector;
 import lombok.NoArgsConstructor;
 
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 @NoArgsConstructor
 public class TriggerManager {
 
-    private HashMap<Long, TriggerEntity> map = new HashMap<>();
+    DatabaseConnector databaseConnector = new DatabaseConnector();
 
     public void add(TriggerEntity te) {
         synchronized (this) {
-            map.put(te.getId(), te);
+
+            try {
+                databaseConnector.createTrigger(te);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public TriggerEntity remove(Long id) {
+    public void remove(Long id) {
         synchronized (this) {
-            return map.remove(id);
+            try {
+                databaseConnector.deleteTrigger(id);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public Map<Long, TriggerEntity> getMap() {
-        return Collections.unmodifiableMap(map);
+        try {
+            return databaseConnector.selectAllTriggers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

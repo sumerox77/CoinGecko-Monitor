@@ -1,29 +1,42 @@
 package com.mycompany.cryptogui.favourite;
 
+import com.mycompany.cryptogui.DatabaseConnector;
 import lombok.NoArgsConstructor;
 
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 @NoArgsConstructor
 public class FavouriteManager {
 
-    private HashMap<Long, FavoutireEntity> map = new HashMap<>();
+    DatabaseConnector databaseConnector = new DatabaseConnector();
+
 
     public void add(FavoutireEntity favoutireEntity) {
         synchronized (this) {
-            map.put(favoutireEntity.getId(), favoutireEntity);
+            try {
+                databaseConnector.createFavourite(favoutireEntity);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public FavoutireEntity remove(Long id) {
+    public void remove(Long id) {
         synchronized (this) {
-            return map.remove(id);
+            try {
+                databaseConnector.deleteFavourite(id);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public Map<Long, FavoutireEntity> getMap() {
-        return Collections.unmodifiableMap(map);
+        try {
+            return databaseConnector.selectAllFavourite();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    return null;
     }
 }
