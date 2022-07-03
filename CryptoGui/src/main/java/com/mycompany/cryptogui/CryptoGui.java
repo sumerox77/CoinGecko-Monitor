@@ -1529,6 +1529,8 @@ public class CryptoGui extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         cryptoPopularContainer8.setVisible(false);
+        jPanelChartSearch.setVisible(false);
+        jPanelChartSearch.removeAll();
 
         client.ping();
 //        client.getTrending()
@@ -1572,16 +1574,24 @@ public class CryptoGui extends javax.swing.JFrame {
         // CHARTS BELOW
         // CHARTS BELOW
 
-        long unixTime = System.currentTimeMillis() / 1000L;
+//        long unixTime = System.currentTimeMillis() / 1000L;
+//
+//        MarketChart dailyPrice = client.getCoinMarketChartRangeById(coinFullData.getId(), "usd", Long.toString( unixTime- 86400), Long.toString(unixTime));
+//
+//        List<List<String>> lls = dailyPrice.getPrices();
+//
+//        System.out.println(lls.size());
+        List<List<String>> coinData = client.getCoinOHLC(coinFullData.getId(), "usd", 1);
 
-        MarketChart dailyPrice = client.getCoinMarketChartRangeById(coinFullData.getId(), "usd", Long.toString( unixTime- 86400), Long.toString(unixTime));
-
-        List<List<String>> lls = dailyPrice.getPrices();
-
-        System.out.println(lls.size());
-        double[] xData = new double[] { 0.0, 1.0, 2.0 };
-        double[] yData = new double[] { 2.0, 1.0, 0.0 };
-
+        double[] xData = new double[coinData.size()];
+        double[] yData = new double[coinData.size()];
+        int counter = 0;
+        for (List<String> x : coinData)
+        {
+            yData[counter] = Double.parseDouble(x.get(2));
+            xData[counter] = Double.parseDouble(x.get(0));
+            counter++;
+        }
 // Create Chart
 
         XYChart chart = QuickChart.getChart("Sample Chart", "X", "Y", "y(x)", xData, yData);
@@ -1595,10 +1605,6 @@ public class CryptoGui extends javax.swing.JFrame {
 
         // Display the window.
         jPanelChartSearch.setVisible(true);
-
-
-
-
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

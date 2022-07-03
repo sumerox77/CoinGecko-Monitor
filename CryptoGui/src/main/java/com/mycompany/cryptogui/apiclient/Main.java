@@ -5,6 +5,8 @@ import com.mycompany.cryptogui.apiclient.domain.Coins.CoinFullData;
 import com.mycompany.cryptogui.apiclient.impl.CoinGeckoApiClientImpl;
 import com.mycompany.cryptogui.apiclient.constant.Currency;
 
+import java.util.List;
+
 class Main {
     public static void main(String[] args) {
         CoinGeckoApiClient client = new CoinGeckoApiClientImpl();
@@ -13,7 +15,13 @@ class Main {
         coinFullData = client.getCoinById("bitcoin");
 
         System.out.println(coinFullData.getName());
-        System.out.println(client.getPrice("bitcoin",Currency.USD).get("bitcoin").get(Currency.USD));
+        List<List<String>> coinData = client.getCoinOHLC("bitcoin", "usd", 1);
+        for (List<String> x : coinData)
+        {
+            System.out.println(Double.parseDouble(x.get(2)));
+        }
+
+
         client.shutdown();
 
     }
