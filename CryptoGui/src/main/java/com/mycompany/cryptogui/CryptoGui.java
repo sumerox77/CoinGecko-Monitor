@@ -1594,13 +1594,13 @@ public class CryptoGui extends javax.swing.JFrame {
         }
 // Create Chart
 
-        XYChart chart = QuickChart.getChart("Sample Chart", "X", "Y", "y(x)", xData, yData);
+        XYChart chart = QuickChart.getChart(coinFullData.getId() + " 24h price change", "Unix Time stamp",coinFullData.getId() + " price", "Price change (USD)", xData, yData);
 
         JPanel chartPanel = new XChartPanel<XYChart>(chart);
         jPanelChartSearch.add(chartPanel, BorderLayout.CENTER);
 
         // label
-        JLabel label = new JLabel("Blah blah blah.", SwingConstants.CENTER);
+        JLabel label = new JLabel("", SwingConstants.CENTER);
         jPanelChartSearch.add(label, BorderLayout.SOUTH);
 
         // Display the window.
