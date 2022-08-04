@@ -10,20 +10,19 @@ import com.mycompany.cryptogui.apiclient.domain.Coins.CoinFullData;
 import com.mycompany.cryptogui.apiclient.domain.Coins.MarketChart;
 import com.mycompany.cryptogui.apiclient.domain.Search.Trending;
 import com.mycompany.cryptogui.apiclient.impl.CoinGeckoApiClientImpl;
+import com.mycompany.cryptogui.dbconnector.DatabaseConnector;
 import com.mycompany.cryptogui.favourite.FavouriteManager;
 import com.mycompany.cryptogui.favourite.FavoutireEntity;
+import com.mycompany.cryptogui.notificationdaemon.NotifierDaemon;
 import com.mycompany.cryptogui.triggers.TriggerEntity;
 import com.mycompany.cryptogui.triggers.TriggerManager;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
-import org.knowm.xchart.*;
+import org.knowm.xchart.QuickChart;
+import org.knowm.xchart.XChartPanel;
+import org.knowm.xchart.XYChart;
 
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-
+import java.awt.*;
 import java.util.List;
 
 import static java.lang.String.valueOf;
