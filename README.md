@@ -32,15 +32,15 @@ saas, making life easier etc..
 
 4. Project Structure (IN IDE):
  Create a diagram with the project. PICTURES: 
-  [ ] Describe in details Business logic, how it works, 
-  [ ] add tables from database,
-  [ ] explain usage of those db's
-  [ ] Tell about Threads in Notification Daemon. 
-  [ ] Caching in Database connector. 
-  [ ] Logging in the whole application. 
-  [ ] Exception Handling.
-  [ ] API Client.
-  [ ] Chart Drawing 
+- [ ] Describe in details Business logic, how it works, 
+- [ ] add tables from database,
+- [ ] explain usage of those db's
+- [ ] Tell about Threads in Notification Daemon. 
+- [ ] Caching in Database connector. 
+- [ ] Logging in the whole application. 
+- [ ] Exception Handling.
+- [ ] API Client.
+- [ ] Chart Drawing 
  3) Provide examples of extending a features of the application ( optional ).
 
 
