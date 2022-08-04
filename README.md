@@ -1,15 +1,5 @@
-## Desktop Application Coingecko
- A software for Monitoring the Cryptocurrency changes at CoinGecko exchange.
-
-##Tech Stack:
-* Java 18
-* Java Swing Framework ( GUI )
-* Maven
-* SQLite Database.
-* Notify: https://github.com/dorkbox/Notify
-
-Author: 
-    Andrii Tochylin.
+# Desktop Application Coingecko
+## A software for Monitoring the Cryptocurrency changes at CoinGecko exchange.
 
 # Thesis Plan:
 
@@ -60,3 +50,5 @@ saas, making life easier etc..
   
 ### 9. List of images. ((FOR EACH IMAGE ADD A NUMBER & ADD AFTER IT THE NAME OF EVERY IMAGE.))
  
+#### Author: 
+    Andrii Tochylin.
