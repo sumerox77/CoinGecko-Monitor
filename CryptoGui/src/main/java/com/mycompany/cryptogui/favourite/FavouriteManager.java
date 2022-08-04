@@ -1,6 +1,6 @@
 package com.mycompany.cryptogui.favourite;
 
-import com.mycompany.cryptogui.DatabaseConnector;
+import com.mycompany.cryptogui.dbconnector.DatabaseConnector;
 import lombok.NoArgsConstructor;
 
 import java.util.Map;

@@ -1,8 +1,7 @@
-package com.mycompany.cryptogui;
+package com.mycompany.cryptogui.notificationdaemon;
 
 import com.mycompany.cryptogui.apiclient.CoinGeckoApiClient;
 import com.mycompany.cryptogui.apiclient.constant.Currency;
-import com.mycompany.cryptogui.apiclient.impl.CoinGeckoApiClientImpl;
 import com.mycompany.cryptogui.triggers.TriggerEntity;
 import com.mycompany.cryptogui.triggers.TriggerManager;
 import dorkbox.notify.Notify;
@@ -24,14 +23,14 @@ public class NotifierDaemon implements Runnable {
             try {
                 Thread.sleep(10000);
                 if (active) {
-                    System.out.println("me enabled");
+                    System.out.println("Notification Manager Enabled");
                     synchronized (manager) {
                         for (TriggerEntity te : manager.getMap().values()) {
                             double price = client.getPrice(te.getCoinID(), Currency.USD).get(te.getCoinID()).get(Currency.USD);
                             if (price >= te.getPriceLowerBound() && price <= te.getPriceUpperBound())
                             {
                                 Notify.create()
-                                        .title("COING-ECKO PRICE NOTIFICATION")
+                                        .title("CoinGecko Notification Manager")
                                         .text(String.format("The price of %s, is within %.2f and %.2f\nPrice: %.2f USD", te.getCoinID(), te.getPriceLowerBound(), te.getPriceUpperBound(), price))
                                         .hideAfter(5000)
                                         .shake(1000, 15)
@@ -45,10 +44,10 @@ public class NotifierDaemon implements Runnable {
                         }
                     }
                 } else {
-                    System.out.println("me disabled");
+                    System.out.println("Notification Manager Disabled");
                 }
             } catch (Exception e) {
-                System.out.println("Exception");
+                System.out.println("Exception:");
                 e.printStackTrace();
             }
         }
