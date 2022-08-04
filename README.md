@@ -3,7 +3,7 @@
 
 # Thesis Plan:
 
-##Structure:
+## Structure:
 
 ### 1. Introduction to the paper. (Main thesis, modern world, interconnectivity with software, modern technologies, 
 saas, making life easier etc..
