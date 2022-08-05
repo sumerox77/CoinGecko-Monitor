@@ -32,7 +32,7 @@ import static java.lang.String.valueOf;
  *
  * @author Andrii Tochylin
  */
-public class CryptoGui extends javax.swing.JFrame {
+public class Main extends javax.swing.JFrame {
 
     private final TriggerManager triggerManager;
     private final NotifierDaemon notifierDaemon;
@@ -44,7 +44,7 @@ public class CryptoGui extends javax.swing.JFrame {
     /**
      * Creates new form CryptoGui
      */
-    public CryptoGui() {
+    public Main() {
         initComponents();
         setTitle("Coingecko Desktop Application. Pre-alpha 0.0.1");
         setUpMainPage();
@@ -1721,19 +1721,19 @@ public class CryptoGui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CryptoGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CryptoGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CryptoGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CryptoGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            var gui = new CryptoGui();
+            var gui = new Main();
             gui.setSize(1400, 700);
             gui.setVisible(true);
         });
