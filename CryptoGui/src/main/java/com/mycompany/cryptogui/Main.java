@@ -36,7 +36,7 @@ public class CryptoGui extends javax.swing.JFrame {
 
     private final TriggerManager triggerManager;
     private final NotifierDaemon notifierDaemon;
-    private CoinGeckoApiClient client = new CoinGeckoApiClientImpl();
+    private final CoinGeckoApiClient client = new CoinGeckoApiClientImpl();
     private final DatabaseConnector databaseConnector;
     private final FavouriteManager favoutireManager;
 
@@ -1254,7 +1254,7 @@ public class CryptoGui extends javax.swing.JFrame {
             jLabel77.setText("Hashing Algorithm is not described");
         }
 
-        jLabel57.setText(valueOf(priceChangePercenta24h_1)+"%");
+        jLabel57.setText(priceChangePercenta24h_1 +"%");
         if(priceChangePercenta24h_1 <= 0)
         {
             jLabel57.setForeground(Color.RED);
@@ -1295,7 +1295,7 @@ public class CryptoGui extends javax.swing.JFrame {
             jLabel66.setText("Hashing Algorithm is not described");
         }
 
-        jLabel81.setText(valueOf(priceChangePercenta24h_2)+"%");
+        jLabel81.setText(priceChangePercenta24h_2 +"%");
         if(priceChangePercenta24h_2 <= 0)
         {
             jLabel81.setForeground(Color.RED);
@@ -1336,7 +1336,7 @@ public class CryptoGui extends javax.swing.JFrame {
             jLabel94.setText("Hashing Algorithm is not described");
         }
 
-        jLabel97.setText(valueOf(priceChangePercenta24h_3)+"%");
+        jLabel97.setText(priceChangePercenta24h_3 +"%");
         if(priceChangePercenta24h_3 <= 0)
         {
             jLabel97.setForeground(Color.RED);
@@ -1380,7 +1380,7 @@ public class CryptoGui extends javax.swing.JFrame {
             jLabel86.setText("Hashing Algorithm is not described");
         }
 
-        jLabel89.setText(valueOf(priceChangePercenta24h_4)+"%");
+        jLabel89.setText(priceChangePercenta24h_4 +"%");
         if(priceChangePercenta24h_4 <= 0)
         {
             jLabel89.setForeground(Color.RED);
@@ -1425,7 +1425,7 @@ public class CryptoGui extends javax.swing.JFrame {
             jLabel109.setText("Hashing Algorithm is not described");
         }
 
-        jLabel112.setText(valueOf(priceChangePercenta24h_5)+"%");
+        jLabel112.setText(priceChangePercenta24h_5 +"%");
         if(priceChangePercenta24h_5 <= 0)
         {
             jLabel112.setForeground(Color.RED);
@@ -1468,7 +1468,7 @@ public class CryptoGui extends javax.swing.JFrame {
             jLabel72.setText("Hashing Algorithm is not described");
         }
 
-        jLabel104.setText(valueOf(priceChangePercenta24h_6)+"%");
+        jLabel104.setText(priceChangePercenta24h_6 +"%");
         if(priceChangePercenta24h_6 <= 0)
         {
             jLabel104.setForeground(Color.RED);
@@ -1512,7 +1512,7 @@ public class CryptoGui extends javax.swing.JFrame {
             jLabel100.setText("Hashing Algorithm is not described");
         }
 
-        jLabel103.setText(valueOf(priceChangePercenta24h_7)+"%");
+        jLabel103.setText(priceChangePercenta24h_7 +"%");
         if(priceChangePercenta24h_7 <= 0)
         {
             jLabel103.setForeground(Color.RED);
@@ -1560,7 +1560,7 @@ public class CryptoGui extends javax.swing.JFrame {
 
         jLabel51.setText("Current Price (USD): " + client.getPrice(jComboBox1.getSelectedItem().toString(), Currency.USD).get(jComboBox1.getSelectedItem().toString()).get(Currency.USD));
         jLabel52.setText("Market Capacity Rank: " + coinFullData.getMarketCapRank());
-        jLabel55.setText(valueOf(coinFullData.getMarketData().getPriceChangePercentage24h())+"%");
+        jLabel55.setText(coinFullData.getMarketData().getPriceChangePercentage24h() +"%");
         if(coinFullData.getMarketData().getPriceChangePercentage24h() <= 0)
         {
             jLabel55.setForeground(Color.RED);
@@ -1713,7 +1713,7 @@ public class CryptoGui extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
