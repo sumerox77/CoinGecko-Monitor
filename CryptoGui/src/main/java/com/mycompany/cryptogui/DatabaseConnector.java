@@ -1,4 +1,4 @@
-package com.mycompany.cryptogui.dbconnector;
+package com.mycompany.cryptogui;
 
 import com.mycompany.cryptogui.favourite.FavoutireEntity;
 import com.mycompany.cryptogui.triggers.TriggerEntity;
@@ -33,23 +33,23 @@ public class DatabaseConnector {
             statement.executeUpdate(sqlTableFavourite);
             statement.close();
 
+
         } catch ( Exception e ) {
-            log.error("Error while creating db! ");
-            e.printStackTrace();
+            log.error("Error while creating db! " + e.getMessage());
             System.exit(0);
         }
         log.info("Table created!");
     }
 
     public long createFavourite(FavoutireEntity favoutireEntity) throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("INSERT INTO FAVOURITE_INFO (COIN_NAME, COIN_ID, HASHING_ALG, TRUST_SCORE) VALUES  (?, ?, ?, ?)")){
+        try(PreparedStatement statement = connection.prepareStatement("INSERT INTO FAVOURITE_INFO (COIN_NAME, COIN_ID, HASHING_ALG, TRUST_SCORE) VALUES  (?, ?, ?, ?)");){
             statement.setString(1, favoutireEntity.getCoinName());
             statement.setString(2, favoutireEntity.getCoinId());
             statement.setString(3, favoutireEntity.getHashingAlgorithm());
             statement.setString(4, favoutireEntity.getTrustScore());
             statement.execute();
 
-            try(ResultSet resultSet = connection.createStatement().executeQuery("SELECT last_insert_rowid()")){
+            try(ResultSet resultSet = connection.createStatement().executeQuery("SELECT last_insert_rowid()");){
                 resultSet.next();
                 long id = resultSet.getLong(1);
                 favoutireEntity.setId(id);
@@ -60,13 +60,13 @@ public class DatabaseConnector {
     }
 
     public long createTrigger(TriggerEntity te) throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("INSERT INTO TRIGGERS_INFO (PRICE_LOW_BOUND, PRICE_UP_BOUND, COIN_ID) VALUES (?, ?, ?)")){
+        try(PreparedStatement statement = connection.prepareStatement("INSERT INTO TRIGGERS_INFO (PRICE_LOW_BOUND, PRICE_UP_BOUND, COIN_ID) VALUES (?, ?, ?)");){
             statement.setDouble(1, te.getPriceLowerBound());
             statement.setDouble(2, te.getPriceUpperBound());
             statement.setString(3, te.getCoinID());
             statement.execute();
 
-            try(ResultSet resultSet = connection.createStatement().executeQuery("SELECT last_insert_rowid()")){
+            try(ResultSet resultSet = connection.createStatement().executeQuery("SELECT last_insert_rowid()");){
                 resultSet.next();
                 long id = resultSet.getLong(1);
                 te.setId(id);
@@ -76,21 +76,21 @@ public class DatabaseConnector {
     }
 
     public void deleteFavourite(Long id) throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("DELETE FROM FAVOURITE_INFO WHERE ID = ?")) {
+        try(PreparedStatement statement = connection.prepareStatement("DELETE FROM FAVOURITE_INFO WHERE ID = ?");) {
             statement.setLong(1, id);
             statement.execute();
         }
     }
 
     public void deleteTrigger(Long id) throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("DELETE FROM TRIGGERS_INFO WHERE ID = ?")) {
+        try(PreparedStatement statement = connection.prepareStatement("DELETE FROM TRIGGERS_INFO WHERE ID = ?");) {
             statement.setLong(1, id);
             statement.execute();
         }
     }
 
     public HashMap<Long, FavoutireEntity> selectAllFavourite() throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("SELECT ID, COIN_NAME, COIN_ID, HASHING_ALG, TRUST_SCORE FROM FAVOURITE_INFO")) {
+        try(PreparedStatement statement = connection.prepareStatement("SELECT ID, COIN_NAME, COIN_ID, HASHING_ALG, TRUST_SCORE FROM FAVOURITE_INFO");) {
             ResultSet resultSet =  statement.executeQuery();
             HashMap<Long, FavoutireEntity> tes = new HashMap<>();
             while (resultSet.next()) {
@@ -108,7 +108,7 @@ public class DatabaseConnector {
     }
 
     public HashMap<Long, TriggerEntity> selectAllTriggers() throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("SELECT ID, PRICE_LOW_BOUND, PRICE_UP_BOUND, COIN_ID FROM TRIGGERS_INFO")) {
+        try(PreparedStatement statement = connection.prepareStatement("SELECT ID, PRICE_LOW_BOUND, PRICE_UP_BOUND, COIN_ID FROM TRIGGERS_INFO");) {
             ResultSet resultSet =  statement.executeQuery();
             HashMap<Long, TriggerEntity> tes = new HashMap<>();
             while (resultSet.next()) {
@@ -125,34 +125,34 @@ public class DatabaseConnector {
     }
 
     public void deleteAllFavourite() throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("DELETE FROM FAVOURITE_INFO")) {
+        try(PreparedStatement statement = connection.prepareStatement("DELETE FROM FAVOURITE_INFO");) {
             statement.execute();
         }
     }
 
     public void deleteAllTriggers() throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("DELETE FROM TRIGGERS_INFO")) {
+        try(PreparedStatement statement = connection.prepareStatement("DELETE FROM TRIGGERS_INFO");) {
             statement.execute();
         }
     }
 
 
-//    public static void main(String[] args) throws Exception {
-//        DatabaseConnector databaseConnector = new DatabaseConnector();
-//        databaseConnector.createTrigger(new TriggerEntity(50.0, 1439820.0, "bitcoin"));
-//        databaseConnector.createTrigger(new TriggerEntity(624.0, 104321.0, "ethereum"));
-//        databaseConnector.createTrigger(new TriggerEntity(7504.0, 15492.0, "dogecoin"));
-//        databaseConnector.createTrigger(new TriggerEntity(833.0, 13313.0, "litecoin"));
-//        databaseConnector.deleteTrigger(1L);
-//        databaseConnector.deleteAllTriggers();
-//
-//        databaseConnector.createFavourite(new FavoutireEntity("bitcoin", "btc", "123vc", "green"));
-//        databaseConnector.createFavourite(new FavoutireEntity("eth", "eth", "1223vc", "red"));
-//        databaseConnector.createFavourite(new FavoutireEntity("dogecoin", "dogecoin", "122133vc", "green"));
-//        databaseConnector.createFavourite(new FavoutireEntity("litecoin", "litecoin", "12vkc3vc", "red"));
-//        databaseConnector.deleteFavourite(1L);
-//        databaseConnector.deleteAllFavourite();
-//
-//    }
+    public static void main(String[] args) throws Exception {
+        DatabaseConnector databaseConnector = new DatabaseConnector();
+        databaseConnector.createTrigger(new TriggerEntity(50.0, 1439820.0, "bitcoin"));
+        databaseConnector.createTrigger(new TriggerEntity(624.0, 104321.0, "ethereum"));
+        databaseConnector.createTrigger(new TriggerEntity(7504.0, 15492.0, "dogecoin"));
+        databaseConnector.createTrigger(new TriggerEntity(833.0, 13313.0, "litecoin"));
+        databaseConnector.deleteTrigger(1L);
+        databaseConnector.deleteAllTriggers();
+
+        databaseConnector.createFavourite(new FavoutireEntity("bitcoin", "btc", "123vc", "green"));
+        databaseConnector.createFavourite(new FavoutireEntity("eth", "eth", "1223vc", "red"));
+        databaseConnector.createFavourite(new FavoutireEntity("dogecoin", "dogecoin", "122133vc", "green"));
+        databaseConnector.createFavourite(new FavoutireEntity("litecoin", "litecoin", "12vkc3vc", "red"));
+        databaseConnector.deleteFavourite(1L);
+        databaseConnector.deleteAllFavourite();
+
+    }
 
 }
