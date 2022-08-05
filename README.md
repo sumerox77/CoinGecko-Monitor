@@ -40,6 +40,7 @@ saas, making life easier etc..
  1) (Code examples with pictures.). 
  2) Show the examples of the code (Simples screenshots.), and tell how it works ( Preferably with comments in the application.) 
  3) Show how GUI was created in Apache Netbeans (screenshots). 
+ 4) Describe compiling process with maven & pom.xml build plugin.
 
 ### 6. User Guide ( Make a complete guide on how to use an application )
 
