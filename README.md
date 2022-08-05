@@ -1,4 +1,4 @@
-# Desktop Application Coingecko
+# Desktop Application Coingecko (( DEGREE PROJECT )) by A. Tochylin
 ## A software for Monitoring the Cryptocurrency changes at CoinGecko exchange.
 
 # Thesis Plan:
@@ -50,6 +50,3 @@ saas, making life easier etc..
  ADD SOURCES, LITERATURE, BOOKS, YOUTUBE, ETC..
   
 ### 9. List of images. ((FOR EACH IMAGE ADD A NUMBER & ADD AFTER IT THE NAME OF EVERY IMAGE.))
- 
-#### Author: 
-    Andrii Tochylin.
