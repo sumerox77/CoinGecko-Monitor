@@ -6,6 +6,7 @@ com/mycompany/cryptogui/apiclient/CoinGeckoApiService.class
 com/mycompany/cryptogui/favourite/FavouriteManager.class
 com/mycompany/cryptogui/notificationdae/NotifierDaemon.class
 com/mycompany/cryptogui/apiclient/domain/Events/EventTypes.class
+com/mycompany/cryptogui/Main$22.class
 com/mycompany/cryptogui/apiclient/domain/Coins/MarketData.class
 com/mycompany/cryptogui/apiclient/domain/Coins/CoinData/Roi.class
 com/mycompany/cryptogui/Main$15.class
@@ -65,6 +66,7 @@ com/mycompany/cryptogui/apiclient/CoinGeckoApiError.class
 com/mycompany/cryptogui/Main$11.class
 com/mycompany/cryptogui/apiclient/domain/Ping.class
 com/mycompany/cryptogui/Main$18.class
+com/mycompany/cryptogui/Main$23.class
 com/mycompany/cryptogui/apiclient/CoinGeckoApiClient.class
 com/mycompany/cryptogui/apiclient/domain/Shared/Market.class
 com/mycompany/cryptogui/apiclient/impl/CoinGeckoApiClientImpl.class
