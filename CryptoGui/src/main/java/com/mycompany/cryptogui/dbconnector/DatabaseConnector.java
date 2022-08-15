@@ -24,21 +24,23 @@ public class DatabaseConnector {
 
 
             Statement statement = connection.createStatement();
-
-            String sql = "CREATE TABLE IF NOT EXISTS TRIGGERS_INFO (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, PRICE_LOW_BOUND INT NOT NULL, PRICE_UP_BOUND INT NOT NULL, COIN_ID CHAR(50))";
-            statement.executeUpdate(sql);
+            log.info("Creating TRIGGERS_INFO table...");
+            String triggersInfoTable = "CREATE TABLE IF NOT EXISTS TRIGGERS_INFO (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, PRICE_LOW_BOUND INT NOT NULL, PRICE_UP_BOUND INT NOT NULL, COIN_ID CHAR(50))";
+            statement.executeUpdate(triggersInfoTable);
             statement.close();
+            log.info("Table TRIGGERS_INFO was successfully created!");
 
-            String sqlTableFavourite = "CREATE TABLE IF NOT EXISTS FAVOURITE_INFO (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, COIN_NAME VARCHAR(100), COIN_ID VARCHAR(100), HASHING_ALG VARCHAR(100), TRUST_SCORE VARCHAR(100))";
-            statement.executeUpdate(sqlTableFavourite);
+            log.info("Creating FAVOURITE_INFO table...");
+            String favouriteInfoTable = "CREATE TABLE IF NOT EXISTS FAVOURITE_INFO (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, COIN_NAME VARCHAR(100), COIN_ID VARCHAR(100), HASHING_ALG VARCHAR(100), TRUST_SCORE VARCHAR(100))";
+            statement.executeUpdate(favouriteInfoTable);
             statement.close();
-
+            log.info("Table TRIGGERS_INFO was successfully created!");
 
         } catch ( Exception e ) {
-            log.error("Error while creating db! " + e.getMessage());
+            log.error("Error while creating database! " + e.getMessage() + "\nExiting the program");
             System.exit(0);
         }
-        log.info("Table created!");
+        log.info("Database was created successfully!");
     }
 
     public long createFavourite(FavoutireEntity favoutireEntity) throws Exception {
