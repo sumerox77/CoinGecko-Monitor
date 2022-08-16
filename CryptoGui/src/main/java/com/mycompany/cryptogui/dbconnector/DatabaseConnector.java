@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.Map;
 
 public class DatabaseConnector {
     private static final Logger log = LoggerFactory.getLogger(DatabaseConnector.class);
@@ -19,9 +20,8 @@ public class DatabaseConnector {
 
     public DatabaseConnector() {
         try {
-            Class.forName("org.sqlite.JDBC");
+            Class.forName("org.sqlite.JDBC"); // Loads the class
             connection = DriverManager.getConnection("jdbc:sqlite:test.db");
-
 
             Statement statement = connection.createStatement();
             log.info("Creating TRIGGERS_INFO table...");
@@ -55,6 +55,7 @@ public class DatabaseConnector {
                 resultSet.next();
                 long id = resultSet.getLong(1);
                 favoutireEntity.setId(id);
+                log.info("An entity was inserted to the FAVOURITE_INFO table.");
                 return id;
             }
 
@@ -72,6 +73,8 @@ public class DatabaseConnector {
                 resultSet.next();
                 long id = resultSet.getLong(1);
                 te.setId(id);
+                log.info("An entity was inserted to the TRIGGERS_INFO table.");
+
                 return id;
             }
         }
@@ -81,6 +84,8 @@ public class DatabaseConnector {
         try(PreparedStatement statement = connection.prepareStatement("DELETE FROM FAVOURITE_INFO WHERE ID = ?");) {
             statement.setLong(1, id);
             statement.execute();
+            log.info("An entity was deleted from the TRIGGERS_INFO table.");
+
         }
     }
 
@@ -88,10 +93,12 @@ public class DatabaseConnector {
         try(PreparedStatement statement = connection.prepareStatement("DELETE FROM TRIGGERS_INFO WHERE ID = ?");) {
             statement.setLong(1, id);
             statement.execute();
+            log.info("An entity was deleted from the TRIGGERS_INFO table.");
+
         }
     }
 
-    public HashMap<Long, FavoutireEntity> selectAllFavourite() throws Exception {
+    public Map<Long, FavoutireEntity> selectAllFavourite() throws Exception {
         try(PreparedStatement statement = connection.prepareStatement("SELECT ID, COIN_NAME, COIN_ID, HASHING_ALG, TRUST_SCORE FROM FAVOURITE_INFO");) {
             ResultSet resultSet =  statement.executeQuery();
             HashMap<Long, FavoutireEntity> tes = new HashMap<>();
@@ -105,11 +112,12 @@ public class DatabaseConnector {
                 temp.setId(id);
                 tes.put(temp.getId(), temp);
             }
+            log.info("Returning all of the rows from FAVOURITE_INFO table.");
             return tes;
         }
     }
 
-    public HashMap<Long, TriggerEntity> selectAllTriggers() throws Exception {
+    public Map<Long, TriggerEntity> selectAllTriggers() throws Exception {
         try(PreparedStatement statement = connection.prepareStatement("SELECT ID, PRICE_LOW_BOUND, PRICE_UP_BOUND, COIN_ID FROM TRIGGERS_INFO");) {
             ResultSet resultSet =  statement.executeQuery();
             HashMap<Long, TriggerEntity> tes = new HashMap<>();
@@ -122,6 +130,7 @@ public class DatabaseConnector {
                 temp.setId(id);
                 tes.put(temp.getId(), temp);
             }
+            log.info("Returning all of the rows from TRIGGERS_INFO table.");
             return tes;
         }
     }
@@ -129,12 +138,14 @@ public class DatabaseConnector {
     public void deleteAllFavourite() throws Exception {
         try(PreparedStatement statement = connection.prepareStatement("DELETE FROM FAVOURITE_INFO");) {
             statement.execute();
+            log.info("Deleting all of the rows from FAVOURITE_INFO table.");
         }
     }
 
     public void deleteAllTriggers() throws Exception {
         try(PreparedStatement statement = connection.prepareStatement("DELETE FROM TRIGGERS_INFO");) {
             statement.execute();
+            log.info("Deleting all of the rows from TRIGGERS_INFO table.");
         }
     }
 }
