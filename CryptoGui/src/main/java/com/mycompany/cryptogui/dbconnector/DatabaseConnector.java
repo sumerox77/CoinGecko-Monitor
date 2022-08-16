@@ -20,22 +20,30 @@ public class DatabaseConnector {
 
     public DatabaseConnector() {
         try {
-            Class.forName("org.sqlite.JDBC"); // Loads the class
+            Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("jdbc:sqlite:test.db");
 
             Statement statement = connection.createStatement();
             log.info("Creating TRIGGERS_INFO table...");
-            String triggersInfoTable = "CREATE TABLE IF NOT EXISTS TRIGGERS_INFO (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, PRICE_LOW_BOUND INT NOT NULL, PRICE_UP_BOUND INT NOT NULL, COIN_ID CHAR(50))";
+            String triggersInfoTable = "CREATE TABLE IF NOT EXISTS TRIGGERS_INFO" +
+                    " (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    " PRICE_LOW_BOUND INT NOT NULL," +
+                    " PRICE_UP_BOUND INT NOT NULL," +
+                    " COIN_ID CHAR(50))";
             statement.executeUpdate(triggersInfoTable);
             statement.close();
             log.info("Table TRIGGERS_INFO was successfully created!");
 
             log.info("Creating FAVOURITE_INFO table...");
-            String favouriteInfoTable = "CREATE TABLE IF NOT EXISTS FAVOURITE_INFO (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, COIN_NAME VARCHAR(100), COIN_ID VARCHAR(100), HASHING_ALG VARCHAR(100), TRUST_SCORE VARCHAR(100))";
+            String favouriteInfoTable = "CREATE TABLE IF NOT EXISTS FAVOURITE_INFO" +
+                    " (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                    "COIN_NAME VARCHAR(100), " +
+                    "COIN_ID VARCHAR(100), " +
+                    "HASHING_ALG VARCHAR(100), " +
+                    "TRUST_SCORE VARCHAR(100))";
             statement.executeUpdate(favouriteInfoTable);
             statement.close();
             log.info("Table TRIGGERS_INFO was successfully created!");
-
         } catch ( Exception e ) {
             log.error("Error while creating database! " + e.getMessage() + "\nExiting the program");
             System.exit(0);
