@@ -22,6 +22,8 @@ import org.knowm.xchart.XYChart;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static java.lang.String.valueOf;
@@ -1673,7 +1675,7 @@ public class Main extends javax.swing.JFrame {
         JPanel jPanel = new JPanel();
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.X_AXIS));
         jPanel.setMaximumSize(new Dimension(1400, 50));
-        JLabel tempJlabel = new JLabel(" Coin name: " + favoutireEntity.getCoinId() +" Coin ID:[" + favoutireEntity.getCoinName() + "], Hashing ALG:[" + favoutireEntity.getHashingAlgorithm() + "], Trust Score: "+favoutireEntity.getTrustScore());
+        JLabel tempJlabel = new JLabel(" Coin name: " + favoutireEntity.getCoinId() +" Coin ID:[" + favoutireEntity.getCoinName() + "], Hashing ALG:[" + favoutireEntity.getHashingAlgorithm() + "], Trust Score: "+favoutireEntity.getTrustScore()+" Price:"+favoutireEntity.getPriceOfCoinAt()+" Date:"+favoutireEntity.getDateForCoinPrice());
         tempJlabel.setFont(new Font("Helvetica Neue", 0, 18));
 
         JButton jButton = new JButton();
@@ -1705,12 +1707,13 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         final CoinFullData coinFullData = client.getCoinById((String) jComboBox1.getSelectedItem());
-
         FavoutireEntity favoutireEntity = new FavoutireEntity(
                 coinFullData.getName(),
                 coinFullData.getId(),
                 coinFullData.getHashingAlgorithm(),
-                coinFullData.getTickers().get(0).getTrustScore()
+                coinFullData.getTickers().get(0).getTrustScore(),
+                client.getPrice(coinFullData.getId(), Currency.USD).get(coinFullData.getId()).get(Currency.USD).toString(),
+                LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
         );
         long currentFavId = favId++;
         favoutireEntity.setId(currentFavId);

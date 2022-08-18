@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +23,7 @@ public class DatabaseConnector {
     public DatabaseConnector() {
         try {
             Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:test.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:cache.db");
 
             Statement statement = connection.createStatement();
             log.info("Creating TRIGGERS_INFO table...");
@@ -35,12 +37,7 @@ public class DatabaseConnector {
             log.info("Table TRIGGERS_INFO was successfully created!");
 
             log.info("Creating FAVOURITE_INFO table...");
-            String favouriteInfoTable = "CREATE TABLE IF NOT EXISTS FAVOURITE_INFO" +
-                    " (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-                    "COIN_NAME VARCHAR(100), " +
-                    "COIN_ID VARCHAR(100), " +
-                    "HASHING_ALG VARCHAR(100), " +
-                    "TRUST_SCORE VARCHAR(100))";
+            String favouriteInfoTable = "CREATE TABLE IF NOT EXISTS FAVOURITE_INFO(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, COIN_NAME VARCHAR(100), COIN_ID VARCHAR(100), HASHING_ALG VARCHAR(100), TRUST_SCORE VARCHAR(100), PRICE_BY_DAY VARCHAR(100), DATE_FOR_COIN_PRICE VARCHAR(100))";
             statement.executeUpdate(favouriteInfoTable);
             statement.close();
             log.info("Table TRIGGERS_INFO was successfully created!");
@@ -52,11 +49,14 @@ public class DatabaseConnector {
     }
 
     public long createFavourite(FavoutireEntity favoutireEntity) throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("INSERT INTO FAVOURITE_INFO (COIN_NAME, COIN_ID, HASHING_ALG, TRUST_SCORE) VALUES  (?, ?, ?, ?)");){
+        try(PreparedStatement statement = connection.prepareStatement("" +
+                "INSERT INTO FAVOURITE_INFO (COIN_NAME, COIN_ID, HASHING_ALG, TRUST_SCORE, PRICE_BY_DAY, DATE_FOR_COIN_PRICE) VALUES  (?, ?, ?, ?, ?, ?)");){
             statement.setString(1, favoutireEntity.getCoinName());
             statement.setString(2, favoutireEntity.getCoinId());
             statement.setString(3, favoutireEntity.getHashingAlgorithm());
             statement.setString(4, favoutireEntity.getTrustScore());
+            statement.setString(5, favoutireEntity.getPriceOfCoinAt());
+            statement.setString(6, LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
             statement.execute();
 
             try(ResultSet resultSet = connection.createStatement().executeQuery("SELECT last_insert_rowid()");){
@@ -66,12 +66,12 @@ public class DatabaseConnector {
                 log.info("An entity was inserted to the FAVOURITE_INFO table.");
                 return id;
             }
-
         }
     }
 
     public long createTrigger(TriggerEntity te) throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("INSERT INTO TRIGGERS_INFO (PRICE_LOW_BOUND, PRICE_UP_BOUND, COIN_ID) VALUES (?, ?, ?)");){
+        try(PreparedStatement statement = connection.prepareStatement("" +
+                "INSERT INTO TRIGGERS_INFO (PRICE_LOW_BOUND, PRICE_UP_BOUND, COIN_ID) VALUES (?, ?, ?)");){
             statement.setDouble(1, te.getPriceLowerBound());
             statement.setDouble(2, te.getPriceUpperBound());
             statement.setString(3, te.getCoinID());
@@ -82,7 +82,6 @@ public class DatabaseConnector {
                 long id = resultSet.getLong(1);
                 te.setId(id);
                 log.info("An entity was inserted to the TRIGGERS_INFO table.");
-
                 return id;
             }
         }
@@ -107,7 +106,8 @@ public class DatabaseConnector {
     }
 
     public Map<Long, FavoutireEntity> selectAllFavourite() throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("SELECT ID, COIN_NAME, COIN_ID, HASHING_ALG, TRUST_SCORE FROM FAVOURITE_INFO");) {
+        try(PreparedStatement statement = connection.prepareStatement("" +
+                "SELECT ID, COIN_NAME, COIN_ID, HASHING_ALG, TRUST_SCORE, PRICE_BY_DAY, DATE_FOR_COIN_PRICE FROM FAVOURITE_INFO");) {
             ResultSet resultSet =  statement.executeQuery();
             HashMap<Long, FavoutireEntity> tes = new HashMap<>();
             while (resultSet.next()) {
@@ -116,7 +116,10 @@ public class DatabaseConnector {
                 String coinID = resultSet.getString(3);
                 String hashingAlgorithm = resultSet.getString(4);
                 String trustScore = resultSet.getString(5);
-                FavoutireEntity temp = new FavoutireEntity(coinName, coinID, hashingAlgorithm, trustScore);
+                String priceByDat = resultSet.getString(6);
+                String dateForPrice = resultSet.getString(7);
+
+                FavoutireEntity temp = new FavoutireEntity(coinName, coinID, hashingAlgorithm, trustScore, priceByDat, dateForPrice);
                 temp.setId(id);
                 tes.put(temp.getId(), temp);
             }
@@ -126,7 +129,8 @@ public class DatabaseConnector {
     }
 
     public Map<Long, TriggerEntity> selectAllTriggers() throws Exception {
-        try(PreparedStatement statement = connection.prepareStatement("SELECT ID, PRICE_LOW_BOUND, PRICE_UP_BOUND, COIN_ID FROM TRIGGERS_INFO");) {
+        try(PreparedStatement statement = connection.prepareStatement("" +
+                "SELECT ID, PRICE_LOW_BOUND, PRICE_UP_BOUND, COIN_ID FROM TRIGGERS_INFO");) {
             ResultSet resultSet =  statement.executeQuery();
             HashMap<Long, TriggerEntity> tes = new HashMap<>();
             while (resultSet.next()) {

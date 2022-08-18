@@ -1,6 +1,7 @@
 package com.mycompany.cryptogui.favourite;
 
 import com.mycompany.cryptogui.dbconnector.DatabaseConnector;
+import java.util.Collections;
 import lombok.NoArgsConstructor;
 
 import java.util.Map;
@@ -9,7 +10,6 @@ import java.util.Map;
 public class FavouriteManager {
 
     DatabaseConnector databaseConnector = new DatabaseConnector();
-
 
     public void add(FavoutireEntity favoutireEntity) {
         synchronized (this) {
@@ -37,6 +37,6 @@ public class FavouriteManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    return null;
+    return Collections.emptyMap();
     }
 }

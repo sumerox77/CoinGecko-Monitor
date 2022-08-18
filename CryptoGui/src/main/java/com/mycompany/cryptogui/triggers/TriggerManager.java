@@ -12,7 +12,6 @@ public class TriggerManager {
 
     public void add(TriggerEntity te) {
         synchronized (this) {
-
             try {
                 databaseConnector.createTrigger(te);
             } catch (Exception e) {

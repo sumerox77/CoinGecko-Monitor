@@ -14,4 +14,8 @@ public class FavoutireEntity {
     private String hashingAlgorithm;
     @NonNull
     private String trustScore;
+    @NonNull
+    private String priceOfCoinAt;
+    @NonNull
+    private String dateForCoinPrice;
 }

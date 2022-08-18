@@ -2,7 +2,6 @@ package com.mycompany.cryptogui.notificationdae;
 
 import com.mycompany.cryptogui.apiclient.CoinGeckoApiClient;
 import com.mycompany.cryptogui.apiclient.constant.Currency;
-import com.mycompany.cryptogui.dbconnector.DatabaseConnector;
 import com.mycompany.cryptogui.triggers.TriggerEntity;
 import com.mycompany.cryptogui.triggers.TriggerManager;
 import dorkbox.notify.Notify;
