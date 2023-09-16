@@ -1,7 +1,7 @@
-## Desktop Application Coingecko (( DEGREE PROJECT )) by A. Tochylin
+## Desktop Application Coingecko
 ## A software for Monitoring the Cryptocurrency changes at CoinGecko exchange.
 
-### 1. Tools Used + Description + Usage + Reason of Usage:
+### Tools Used:
 * Programming language: Java 18
 * Frameworks: Java Swing GUI
 * Libraries: Lombok, Slf4j, Notify, JDBC connector, retrofit, retrofit-jackson, xchart, Swagger (In CoinGecko).
